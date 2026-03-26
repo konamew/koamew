@@ -7,8 +7,8 @@
     body {
       margin: 0;
       font-family: sans-serif;
-      background: #EFE8E0;
-      color: #4E7CB2;
+      background: #C0E0FF; /* พื้นหลัง */
+      color: #253A82; /* ตัวอักษรหลัก */
     }
 
     .container {
@@ -25,26 +25,37 @@
     .title {
       font-size: 32px;
       font-weight: bold;
+      color: #88A2FF; /* ฟ้า */
     }
 
     .status {
       font-size: 14px;
     }
 
+    .status span {
+      background: #E3FC87; /* เขียว */
+      padding: 2px 8px;
+      border-radius: 8px;
+    }
+
     .profile {
       width: 60px;
       height: 60px;
       border-radius: 50%;
-      border: 3px solid #94C2DA;
+      border: 3px solid #AB9DFF; /* ม่วง */
     }
 
-    /* WELCOME BOX */
+    /* WELCOME */
     .welcome {
-      border: 3px solid #94C2DA;
+      border: 3px solid #88A2FF;
       border-radius: 15px;
       padding: 15px;
       margin: 20px 0;
       background: white;
+    }
+
+    .welcome span {
+      color: #FFB2F7; /* ชมพู */
     }
 
     /* MENU */
@@ -56,23 +67,30 @@
     }
 
     .menu button {
-      border: 2px solid #94C2DA;
-      background: transparent;
+      border: 2px solid #88A2FF;
+      background: #AB9DFF; /* ม่วง */
+      color: white;
       padding: 8px 15px;
       border-radius: 10px;
-      color: #4E7CB2;
+      cursor: pointer;
     }
 
-    /* PORTFOLIO */
+    .menu button:hover {
+      background: #88A2FF; /* hover ฟ้า */
+    }
+
+    /* SECTION TITLE */
     .section-title {
       font-size: 28px;
       font-weight: bold;
       margin: 20px 0 10px;
+      color: #253A82;
     }
 
+    /* PORTFOLIO */
     .portfolio-box {
       height: 200px;
-      border: 3px solid #94C2DA;
+      border: 3px solid #88A2FF;
       border-radius: 15px;
       background: white;
     }
@@ -80,7 +98,7 @@
     /* QUEUE */
     .queue-box {
       margin-top: 20px;
-      border: 3px solid #94C2DA;
+      border: 3px solid #AB9DFF;
       border-radius: 15px;
       padding: 15px;
       background: white;
@@ -97,7 +115,11 @@
     .progress-bar {
       width: 70%;
       height: 100%;
-      background: #4E7CB2;
+      background: linear-gradient(
+        to right,
+        #88A2FF,
+        #FFB2F7
+      ); /* ฟ้า → ชมพู */
     }
 
   </style>
@@ -111,7 +133,7 @@
   <div class="header">
     <div>
       <div class="title">konamew</div>
-      <div class="status">Status: open</div>
+      <div class="status">Status: <span>open</span></div>
     </div>
 
     <img class="profile" src="https://via.placeholder.com/60">
@@ -119,7 +141,7 @@
 
   <!-- WELCOME -->
   <div class="welcome">
-    <p>welcome ✧</p>
+    <p><span>welcome ✧</span></p>
     <p>i'm konamew<br>nice to mew u 🐾</p>
   </div>
 
