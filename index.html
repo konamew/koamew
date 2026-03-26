@@ -1,52 +1,153 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>KONAMEW</title>
+  <title>Konamew</title>
+
   <style>
     body {
+      margin: 0;
       font-family: sans-serif;
-      background: #f8f8fb;
-      text-align: center;
-      padding: 40px;
+      background: #EFE8E0;
+      color: #4E7CB2;
     }
-    h1 {
-      color: #6b7cff;
-    }
-    img {
-      width: 200px;
-      border-radius: 12px;
-      margin: 10px;
-    }
-    .box {
-      background: white;
+
+    .container {
       padding: 20px;
-      border-radius: 16px;
-      margin: 20px auto;
-      max-width: 500px;
     }
+
+    /* HEADER */
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .title {
+      font-size: 32px;
+      font-weight: bold;
+    }
+
+    .status {
+      font-size: 14px;
+    }
+
+    .profile {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      border: 3px solid #94C2DA;
+    }
+
+    /* WELCOME BOX */
+    .welcome {
+      border: 3px solid #94C2DA;
+      border-radius: 15px;
+      padding: 15px;
+      margin: 20px 0;
+      background: white;
+    }
+
+    /* MENU */
+    .menu {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .menu button {
+      border: 2px solid #94C2DA;
+      background: transparent;
+      padding: 8px 15px;
+      border-radius: 10px;
+      color: #4E7CB2;
+    }
+
+    /* PORTFOLIO */
+    .section-title {
+      font-size: 28px;
+      font-weight: bold;
+      margin: 20px 0 10px;
+    }
+
+    .portfolio-box {
+      height: 200px;
+      border: 3px solid #94C2DA;
+      border-radius: 15px;
+      background: white;
+    }
+
+    /* QUEUE */
+    .queue-box {
+      margin-top: 20px;
+      border: 3px solid #94C2DA;
+      border-radius: 15px;
+      padding: 15px;
+      background: white;
+    }
+
+    .progress {
+      margin-top: 10px;
+      height: 10px;
+      background: #ddd;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .progress-bar {
+      width: 70%;
+      height: 100%;
+      background: #4E7CB2;
+    }
+
   </style>
 </head>
 
 <body>
 
-  <h1>Commission</h1>
+<div class="container">
 
-  <div class="box">
-    <h2>Portfolio</h2>
-    <img src="https://via.placeholder.com/200">
-    <img src="https://via.placeholder.com/200">
+  <!-- HEADER -->
+  <div class="header">
+    <div>
+      <div class="title">konamew</div>
+      <div class="status">Status: open</div>
+    </div>
+
+    <img class="profile" src="https://via.placeholder.com/60">
   </div>
 
-  <div class="box">
-    <h2>Price</h2>
-    <p>Bust: 300฿</p>
-    <p>Half body: 500฿</p>
+  <!-- WELCOME -->
+  <div class="welcome">
+    <p>welcome ✧</p>
+    <p>i'm konamew<br>nice to mew u 🐾</p>
   </div>
 
-  <div class="box">
-    <h2>Contact</h2>
-    <p>Discord: yourname</p>
+  <!-- MENU -->
+  <div class="menu">
+    <button>HOME</button>
+    <button>T.O.S</button>
+    <button>PRICE</button>
+    <button>CONTACT</button>
   </div>
+
+  <!-- PORTFOLIO -->
+  <div class="section-title">Portfolio</div>
+  <div class="portfolio-box"></div>
+
+  <!-- QUEUE -->
+  <div class="section-title">Queue</div>
+  <div class="queue-box">
+    <p>Name: MXXN</p>
+    <p>Service: Half body</p>
+    <p>Status: rendering</p>
+
+    <div class="progress">
+      <div class="progress-bar"></div>
+    </div>
+  </div>
+
+</div>
 
 </body>
 </html>
