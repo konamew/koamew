@@ -2,17 +2,21 @@
 <html>
 <head>
   <title>Konamew</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
     body {
       margin: 0;
       font-family: sans-serif;
-      background: #C0E0FF; /* พื้นหลัง */
-      color: #253A82; /* ตัวอักษรหลัก */
+      background: #C0E0FF;
+      color: #253A82;
+      min-height: 100vh;
     }
 
     .container {
-      padding: 20px;
+      padding: 15px;
+      max-width: 500px;
+      margin: auto;
     }
 
     /* HEADER */
@@ -23,87 +27,91 @@
     }
 
     .title {
-      font-size: 32px;
+      font-size: 28px;
       font-weight: bold;
-      color: #88A2FF; /* ฟ้า */
-    }
-
-    .status {
-      font-size: 14px;
     }
 
     .status span {
-      background: #E3FC87; /* เขียว */
-      padding: 2px 8px;
+      background: #E3FC87;
+      padding: 3px 8px;
       border-radius: 8px;
+      font-weight: bold;
     }
 
     .profile {
-      width: 60px;
-      height: 60px;
+      width: 50px;
+      height: 50px;
       border-radius: 50%;
-      border: 3px solid #AB9DFF; /* ม่วง */
+      border: 3px solid #AB9DFF;
     }
 
-    /* WELCOME */
-    .welcome {
-      border: 3px solid #88A2FF;
+    /* BOX STYLE */
+    .welcome,
+    .portfolio-box,
+    .queue-box {
+      background: white;
+      border: 2px solid #88A2FF;
       border-radius: 15px;
       padding: 15px;
-      margin: 20px 0;
-      background: white;
+      margin: 15px 0;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
     }
 
     .welcome span {
-      color: #FFB2F7; /* ชมพู */
+      color: #FFB2F7;
     }
 
     /* MENU */
     .menu {
       display: flex;
-      gap: 10px;
+      gap: 8px;
       justify-content: center;
-      margin-bottom: 20px;
+      margin: 10px 0;
     }
 
     .menu button {
-      border: 2px solid #88A2FF;
-      background: #AB9DFF; /* ม่วง */
+      background: #AB9DFF;
       color: white;
-      padding: 8px 15px;
+      border: none;
+      padding: 8px 12px;
       border-radius: 10px;
-      cursor: pointer;
+      font-size: 12px;
     }
 
     .menu button:hover {
-      background: #88A2FF; /* hover ฟ้า */
+      background: #88A2FF;
     }
 
-    /* SECTION TITLE */
+    /* TITLE */
     .section-title {
-      font-size: 28px;
+      font-size: 22px;
       font-weight: bold;
-      margin: 20px 0 10px;
+      margin-top: 20px;
+    }
+
+    .queue-link {
+      text-decoration: none;
       color: #253A82;
+    }
+
+    .queue-link:hover {
+      color: #88A2FF;
     }
 
     /* PORTFOLIO */
     .portfolio-box {
-      height: 200px;
-      border: 3px solid #88A2FF;
-      border-radius: 15px;
-      background: white;
+      height: 180px;
+      padding: 0;
+      overflow: hidden;
+    }
+
+    .portfolio-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
 
     /* QUEUE */
-    .queue-box {
-      margin-top: 20px;
-      border: 3px solid #AB9DFF;
-      border-radius: 15px;
-      padding: 15px;
-      background: white;
-    }
-
     .progress {
       margin-top: 10px;
       height: 10px;
@@ -115,11 +123,7 @@
     .progress-bar {
       width: 70%;
       height: 100%;
-      background: linear-gradient(
-        to right,
-        #88A2FF,
-        #FFB2F7
-      ); /* ฟ้า → ชมพู */
+      background: linear-gradient(to right, #88A2FF, #FFB2F7);
     }
 
   </style>
@@ -136,7 +140,7 @@
       <div class="status">Status: <span>open</span></div>
     </div>
 
-    <img class="profile" src="https://via.placeholder.com/60">
+    <img class="profile" src="https://via.placeholder.com/50">
   </div>
 
   <!-- WELCOME -->
@@ -155,10 +159,15 @@
 
   <!-- PORTFOLIO -->
   <div class="section-title">Portfolio</div>
-  <div class="portfolio-box"></div>
+  <div class="portfolio-box">
+    <img id="portfolio-img" src="https://via.placeholder.com/300">
+  </div>
 
   <!-- QUEUE -->
-  <div class="section-title">Queue</div>
+  <div class="section-title">
+    <a href="queue.html" class="queue-link">Queue →</a>
+  </div>
+
   <div class="queue-box">
     <p>Name: MXXN</p>
     <p>Service: Half body</p>
@@ -170,6 +179,22 @@
   </div>
 
 </div>
+
+<!-- PORTFOLIO SLIDE -->
+<script>
+const images = [
+  "https://via.placeholder.com/300/88A2FF",
+  "https://via.placeholder.com/300/FFB2F7",
+  "https://via.placeholder.com/300/AB9DFF"
+];
+
+let index = 0;
+
+setInterval(() => {
+  index = (index + 1) % images.length;
+  document.getElementById("portfolio-img").src = images[index];
+}, 2000);
+</script>
 
 </body>
 </html>
