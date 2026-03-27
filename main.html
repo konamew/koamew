@@ -242,12 +242,53 @@ body{
   margin-top:10px;
 }
 
-.progress-fill{
+progress-fill{
   width:70%;
   height:100%;
   background: linear-gradient(90deg,#ff9eb5,#c9b6ff,#8ec5ff);
   border-radius:10px;
   box-shadow:0 0 10px rgba(255,182,193,0.6);
+
+  position:relative;
+  overflow:hidden;
+}
+
+.progress-fill::after{
+  content:"";
+  position:absolute;
+  top:0;
+  left:-50%;
+  width:50%;
+  height:100%;
+
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255,255,255,0.5),
+    transparent
+  );
+
+  animation: shimmerMove 2s infinite;
+}
+
+@keyframes shimmerMove{
+  0%{ left:-50%; }
+  100%{ left:120%; }
+}
+
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255,255,255,0.5),
+    transparent
+  );
+
+  animation: shimmerMove 2s infinite;
+}
+
+@keyframes shimmerMove{
+  0%{ left:-50%; }
+  100%{ left:120%; }
 }
 
 /* 🌸 floating background */
