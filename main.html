@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>konamew</title>
 
 <style>
+
 /* 🌸 RESET */
 *{
   margin:0;
@@ -26,7 +26,7 @@ body{
   justify-content:center;
 }
 
-/* 💖 จำกัดความกว้าง (แก้ปัญหาคอมโล่ง) */
+/* 💖 CONTAINER (แก้คอมโล่ง) */
 .container{
   width:100%;
   max-width:420px;
@@ -41,7 +41,7 @@ body{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  box-shadow:0 6px 20px rgba(255,182,193,0.4);
+  box-shadow:0 8px 25px rgba(255,182,193,0.4);
 }
 
 .header img{
@@ -56,7 +56,7 @@ body{
 .welcome img{
   width:100%;
   border-radius:20px;
-  box-shadow:0 10px 25px rgba(255,182,193,0.4);
+  box-shadow:0 10px 30px rgba(255,182,193,0.4);
 }
 
 /* 🎀 MENU */
@@ -75,32 +75,51 @@ body{
   background:white;
   color:#d98194;
   font-weight:bold;
-  transition:0.2s;
+  transition:0.25s;
+  position:relative;
 }
 
 .menu button:hover{
   background:#ffdbe5;
   transform:translateY(-3px);
+  box-shadow:0 5px 15px rgba(255,182,193,0.4);
 }
 
 .menu button:active{
   transform:scale(0.95);
 }
 
-/* ✨ PORTFOLIO */
+/* ✨ sparkle */
+.menu button:hover::after{
+  content:"✨";
+  position:absolute;
+  right:8px;
+  top:-5px;
+  font-size:14px;
+  animation:sparkle 1s infinite;
+}
+
+@keyframes sparkle{
+  0%{opacity:0;}
+  50%{opacity:1;}
+  100%{opacity:0;}
+}
+
+/* 🌸 TITLE */
 .section-title{
   font-size:24px;
   margin:20px 0 10px;
   color:#6b5b5b;
 }
 
+/* 🎨 SLIDER */
 .slider{
   position:relative;
   width:100%;
-  height:250px;
+  height:260px;
   overflow:hidden;
   border-radius:20px;
-  box-shadow:0 10px 25px rgba(255,182,193,0.4);
+  box-shadow:0 10px 30px rgba(255,182,193,0.4);
 }
 
 .slide{
@@ -121,7 +140,7 @@ body{
   object-fit:cover;
 }
 
-/* ปุ่มสไลด์ */
+/* ปุ่ม slider */
 .nav{
   position:absolute;
   top:50%;
@@ -137,62 +156,110 @@ body{
 .prev{ left:10px;}
 .next{ right:10px;}
 
-/* 💖 QUEUE */
-.card{
-  background:white;
-  padding:15px;
-  border-radius:20px;
-  box-shadow:0 10px 25px rgba(255,182,193,0.3);
+/* 💖 QUEUE CARD (เวอร์ชันสวยตามแบบคุณ) */
+.queue-card{
   position:relative;
+  background: linear-gradient(145deg,#fff,#fff5f8);
+  border-radius:25px;
+  padding:18px;
+  margin-top:10px;
+
+  box-shadow:
+    0 10px 30px rgba(255,182,193,0.35),
+    inset 0 1px 5px rgba(255,255,255,0.6);
+
+  transition:0.3s;
 }
 
-.queue-tag{
+.queue-card:hover{
+  transform: translateY(-5px);
+  box-shadow:
+    0 15px 40px rgba(255,182,193,0.5);
+}
+
+/* glow overlay */
+.queue-card::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:25px;
+  background: radial-gradient(circle at top left, rgba(255,200,220,0.3), transparent);
+  pointer-events:none;
+}
+
+/* badge */
+.queue-badge{
   position:absolute;
   right:10px;
   top:10px;
-  background:#ffeaa7;
-  padding:5px 10px;
-  border-radius:10px;
-  font-size:14px;
+
+  background: linear-gradient(145deg,#ffeaa7,#ffd6f1);
+  border-radius:15px;
+  padding:8px 12px;
+
+  text-align:center;
+  box-shadow:0 5px 15px rgba(0,0,0,0.1);
 }
 
-.progress{
-  height:8px;
+.queue-badge span{
+  display:block;
+  font-size:12px;
+  color:#7a6a6a;
+}
+
+.queue-badge b{
+  font-size:22px;
+  color:#ff6fa5;
+}
+
+/* text */
+.client{
+  font-size:22px;
+  font-weight:bold;
+}
+
+.client span{
+  color:#e89aac;
+  font-size:16px;
+  margin-left:5px;
+}
+
+.service{
+  margin-top:5px;
+}
+
+.progress-text{
+  margin-top:5px;
+  color:#e89aac;
+}
+
+/* progress */
+.progress-bar{
+  height:10px;
   background:#eee;
   border-radius:10px;
   overflow:hidden;
   margin-top:10px;
 }
 
-.progress-bar{
+.progress-fill{
   width:70%;
   height:100%;
-  background:linear-gradient(to right,#ff9eb5,#8fbaff);
+  background: linear-gradient(90deg,#ff9eb5,#c9b6ff,#8ec5ff);
+  border-radius:10px;
+  box-shadow:0 0 10px rgba(255,182,193,0.6);
 }
 
-/* ✨ sparkle hover */
-button:hover::after{
-  content:"✨";
-  position:absolute;
-  animation:sparkle 1s infinite;
-}
-
-@keyframes sparkle{
-  0%{opacity:0;}
-  50%{opacity:1;}
-  100%{opacity:0;}
-}
-
-/* 🌸 floating flowers */
+/* 🌸 floating background */
 body::before{
-  content:"🌸";
+  content:"🌸 ";
   position:fixed;
   top:0;
   left:0;
   width:100%;
   height:100%;
-  opacity:0.1;
-  animation:float 20s linear infinite;
+  opacity:0.08;
+  animation:float 10s linear infinite;
   pointer-events:none;
 }
 
@@ -201,7 +268,7 @@ body::before{
   100%{transform:translateY(-100px);}
 }
 
-/* 💻 Desktop ปรับนิดเดียว */
+/* 💻 DESKTOP */
 @media(min-width:768px){
   .container{
     max-width:600px;
@@ -254,16 +321,24 @@ body::before{
 <!-- QUEUE -->
 <div class="section-title">Queue</div>
 
-<div class="card">
-  <div class="queue-tag">Queue 1</div>
+<div class="queue-card">
 
-  <h3>Client <span style="color:#d98194">Vgen</span></h3>
-  <p>Service : head shot</p>
-  <p style="color:#d98194">Progress : done</p>
-
-  <div class="progress">
-    <div class="progress-bar"></div>
+  <div class="queue-badge">
+    <span>Queue</span>
+    <b>1</b>
   </div>
+
+  <h3 class="client">
+    Client <span>Vgen</span>
+  </h3>
+
+  <p class="service">Service : head shot</p>
+  <p class="progress-text">Progress : done</p>
+
+  <div class="progress-bar">
+    <div class="progress-fill"></div>
+  </div>
+
 </div>
 
 </div>
@@ -287,7 +362,6 @@ function prev(){
   showSlide(index);
 }
 
-/* auto slide */
 setInterval(next,4000);
 </script>
 
