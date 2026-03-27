@@ -1,188 +1,201 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Konamew</title>
+  <title>Konamew</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<style>
-body {
-  margin: 0;
-  font-family: sans-serif;
-  background: #f7f2f4;
-}
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      background: #f6f3f4;
+    }
 
-/* ===== TOP BAR ===== */
-.topbar {
-  background: #f49ab0;
-  padding: 12px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
+    /* HEADER */
+    .header {
+      background: #d88a9a;
+      padding: 12px 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
-.logo {
-  height: 40px;
-}
+    .logo {
+      height: 45px;
+    }
 
-.cat {
-  height: 40px;
-}
+    .cat {
+      height: 35px;
+    }
 
-/* ===== WELCOME ===== */
-.welcome-box {
-  margin: 15px;
-  border-radius: 15px;
-  overflow: hidden;
-}
+    /* WELCOME */
+    .welcome-box {
+      margin: 15px;
+      border-radius: 15px;
+      overflow: hidden;
+      position: relative;
+    }
 
-.welcome-box img {
-  width: 100%;
-  display: block;
-}
+    .welcome-bg {
+      width: 100%;
+      display: block;
+    }
 
-/* ===== MENU ===== */
-.menu {
-  display: flex;
-  justify-content: space-around;
-  margin: 15px;
-}
+    .welcome-text {
+      position: absolute;
+      top: 10px;
+      left: 15px;
+      width: 200px;
+    }
 
-.menu button {
-  padding: 10px 18px;
-  border-radius: 20px;
-  border: 2px solid #f49ab0;
-  background: transparent;
-  color: #f49ab0;
-  font-weight: bold;
-}
+    /* MENU */
+    .menu {
+      display: flex;
+      justify-content: space-around;
+      margin: 10px 10px 20px;
+    }
 
-/* ===== SECTION TITLE ===== */
-.title {
-  font-size: 28px;
-  font-weight: bold;
-  margin: 20px 15px 10px;
-  color: #6b5b5b;
-}
+    .menu button {
+      border: 2px solid #e3a3b0;
+      background: transparent;
+      border-radius: 20px;
+      padding: 8px 16px;
+      color: #c97c8f;
+      font-weight: bold;
+    }
 
-/* ===== PORTFOLIO SLIDER ===== */
-.slider {
-  margin: 15px;
-  border-radius: 15px;
-  overflow: hidden;
-}
+    /* TITLE */
+    h2 {
+      margin: 15px;
+      color: #6e5c60;
+    }
 
-.slider img {
-  width: 100%;
-  display: none;
-}
+    /* 🔥 SLIDER FIX (ไม่กระโดด) */
+    .slider {
+      margin: 15px;
+      border-radius: 15px;
+      overflow: hidden;
+      height: 250px;
+      position: relative;
+    }
 
-.slider img.active {
-  display: block;
-}
+    .slider img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      transition: opacity 0.6s ease;
+    }
 
-/* ===== QUEUE ===== */
-.queue-card {
-  margin: 15px;
-  padding: 20px;
-  background: white;
-  border-radius: 15px;
-  box-shadow: 0 0 15px rgba(255,150,180,0.4);
-  position: relative;
-}
+    .slider img.active {
+      opacity: 1;
+    }
 
-.queue-number {
-  position: absolute;
-  right: 10px;
-  top: -10px;
-  background: #f7e6a5;
-  padding: 10px;
-  border-radius: 5px;
-  text-align: center;
-}
+    /* QUEUE CARD */
+    .card {
+      background: white;
+      margin: 15px;
+      padding: 15px;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(255, 170, 190, 0.4);
+      position: relative;
+    }
 
-.queue-number span {
-  font-size: 24px;
-  color: hotpink;
-}
+    .badge {
+      position: absolute;
+      right: 10px;
+      top: -10px;
+      background: #e9d99c;
+      padding: 10px;
+      border-radius: 10px;
+      text-align: center;
+    }
 
-/* ===== PROGRESS BAR ===== */
-.progress {
-  height: 10px;
-  background: #ddd;
-  border-radius: 10px;
-  overflow: hidden;
-  margin-top: 10px;
-}
+    .badge span {
+      font-size: 20px;
+      color: #ff6fa0;
+    }
 
-.progress-bar {
-  height: 100%;
-  width: 80%;
-  background: linear-gradient(to right, #ff8fab, #8ec5ff);
-}
+    .progress {
+      height: 10px;
+      background: #ddd;
+      border-radius: 10px;
+      margin-top: 10px;
+      overflow: hidden;
+    }
 
-</style>
+    .progress-bar {
+      height: 100%;
+      width: 70%;
+      background: linear-gradient(to right, #f48ca8, #8db5e5);
+    }
+
+  </style>
 </head>
 
 <body>
 
-<!-- ===== TOP BAR ===== -->
-<div class="topbar">
-  <img src="logokonamew.PNG" class="logo">
-  <img src="logo cat.PNG" class="cat">
-</div>
-
-<!-- ===== WELCOME ===== -->
-<div class="welcome-box">
-  <img src="bgwelcome.PNG">
-  <img src="welcome.PNG" style="position:absolute; left:25px; top:80px; width:150px;">
-</div>
-
-<!-- ===== MENU ===== -->
-<div class="menu">
-  <button>Home</button>
-  <button>T.O.S</button>
-  <button>Price</button>
-  <button>Contact</button>
-</div>
-
-<!-- ===== PORTFOLIO ===== -->
-<div class="title">Portfolio</div>
-
-<div class="slider">
-  <img src="P1.JPG" class="active">
-  <img src="P2.JPG">
-  <img src="P3.JPG">
-  <img src="P4.JPG">
-</div>
-
-<!-- ===== QUEUE ===== -->
-<div class="title">Queue</div>
-
-<div class="queue-card">
-  <div class="queue-number">
-    Queue<br><span>1</span>
+  <!-- HEADER -->
+  <div class="header">
+    <img src="logokonamew.PNG" class="logo">
+    <img src="logocat.PNG" class="cat">
   </div>
 
-  <h2>Client <span style="color:#f49ab0; font-size:14px;">Vgen</span></h2>
-  <p>Service : head shot</p>
-  <p style="color:#f49ab0;">Progress : done</p>
-
-  <div class="progress">
-    <div class="progress-bar"></div>
+  <!-- WELCOME -->
+  <div class="welcome-box">
+    <img src="bgwelcome.PNG" class="welcome-bg">
+    <img src="welcome.PNG" class="welcome-text">
   </div>
-</div>
 
-<!-- ===== SCRIPT (AUTO SLIDE) ===== -->
-<script>
-let index = 0;
-const slides = document.querySelectorAll(".slider img");
+  <!-- MENU -->
+  <div class="menu">
+    <button>Home</button>
+    <button>T.O.S</button>
+    <button>Price</button>
+    <button>Contact</button>
+  </div>
 
-setInterval(() => {
-  slides[index].classList.remove("active");
-  index = (index + 1) % slides.length;
-  slides[index].classList.add("active");
-}, 2500);
-</script>
+  <!-- PORTFOLIO -->
+  <h2>Portfolio</h2>
+
+  <div class="slider">
+    <img src="P1.JPG" class="active">
+    <img src="P2.JPG">
+    <img src="P3.JPG">
+    <img src="P4.JPG">
+  </div>
+
+  <!-- QUEUE -->
+  <h2>Queue</h2>
+
+  <div class="card">
+    <div class="badge">
+      Queue<br><span>1</span>
+    </div>
+
+    <h3>Client <span style="color:#e3a3b0;">Vgen</span></h3>
+    <p>Service : head shot</p>
+    <p style="color:#e3a3b0;">Progress : done</p>
+
+    <div class="progress">
+      <div class="progress-bar"></div>
+    </div>
+  </div>
+
+  <!-- AUTO SLIDE -->
+  <script>
+    let slides = document.querySelectorAll(".slider img");
+    let index = 0;
+
+    setInterval(() => {
+      slides[index].classList.remove("active");
+      index = (index + 1) % slides.length;
+      slides[index].classList.add("active");
+    }, 3000);
+  </script>
 
 </body>
 </html>
