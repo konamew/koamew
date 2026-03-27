@@ -7,58 +7,67 @@
   <style>
     body {
       margin: 0;
-      font-family: sans-serif;
       height: 100vh;
+
       display: flex;
       justify-content: center;
       align-items: center;
 
-      background: #fff0f5;
-      background-image: radial-gradient(#ffc0cb 1px, transparent 1px);
-      background-size: 30px 30px;
+      /* 🎨 พื้นหลังหลัก */
+      background: url("Bg.PNG") no-repeat center;
+      background-size: cover;
+    }
+
+    /* 🌸 layer ดอกไม้ */
+    .overlay {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      background: url("BgFlower.PNG") repeat;
+      background-size: 200px;
+      opacity: 0.4;
+      pointer-events: none;
     }
 
     .container {
       text-align: center;
+      position: relative;
+      z-index: 2;
     }
 
-    /* PROFILE */
+    /* 👤 รูปโปรไฟล์ */
     .profile {
       width: 150px;
       height: 150px;
       border-radius: 50%;
       object-fit: cover;
-      box-shadow: 0 0 25px rgba(255, 150, 180, 0.6);
+
+      box-shadow: 0 0 40px rgba(255,150,180,0.6);
     }
 
-    /* NAME */
-    .name {
-      font-size: 32px;
+    /* 📝 text PNG */
+    .text-img {
+      width: 220px;
       margin-top: 15px;
-      color: #555;
-      text-shadow: 2px 2px #ffc0cb;
     }
 
-    .status {
-      margin-top: 5px;
-      color: #777;
-    }
-
-    /* BUTTON */
+    /* 🔘 ปุ่ม */
     .btn {
       margin-top: 20px;
-      padding: 10px 30px;
-      border-radius: 20px;
+      padding: 12px 35px;
+      border-radius: 25px;
       border: none;
       background: #ff8fb1;
       color: white;
       font-size: 16px;
-      box-shadow: 0 5px 10px rgba(255, 150, 180, 0.4);
+
+      box-shadow: 0 8px 20px rgba(255,150,180,0.5);
       cursor: pointer;
     }
 
     .btn:hover {
       background: #ff6f9d;
+      transform: scale(1.05);
     }
 
   </style>
@@ -66,13 +75,20 @@
 
 <body>
 
+<!-- 🌸 layer -->
+<div class="overlay"></div>
+
 <div class="container">
 
-  <img class="profile" src="your-image.jpg">
+  <!-- 👤 โปรไฟล์ -->
+  <img class="profile" src="pfp.PNG">
 
-  <div class="name">konamew</div>
-  <div class="status">Commission : Open</div>
+  <!-- 📝 text -->
+  <br>
+  <img class="text-img" src="text.PNG">
 
+  <!-- 🔘 ปุ่ม -->
+  <br>
   <a href="main.html">
     <button class="btn">next</button>
   </a>
