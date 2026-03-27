@@ -1,99 +1,116 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Konamew</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Konamew</title>
 
   <style>
     body {
       margin: 0;
+      font-family: sans-serif;
       height: 100vh;
 
       display: flex;
       justify-content: center;
       align-items: center;
 
-      /* 🎨 พื้นหลังหลัก */
-      background: url("Bg.PNG") no-repeat center;
+      /* 🌸 พื้นหลัง */
+      background-color: #fff5f7;
+      background-image: url("BgFlower.PNG");
       background-size: cover;
+      background-position: center;
     }
 
-    /* 🌸 layer ดอกไม้ */
-    .overlay {
-      position: fixed;
-      width: 100%;
-      height: 100%;
-      background: url("BgFlower.PNG") repeat;
-      background-size: 200px;
-      opacity: 0.4;
-      pointer-events: none;
-    }
-
+    /* 📱 กล่องหลัก (แก้ปัญหาคอมเล็กไป) */
     .container {
       text-align: center;
-      position: relative;
-      z-index: 2;
+      max-width: 400px;
+      width: 100%;
+      padding: 20px;
     }
 
-    /* 👤 รูปโปรไฟล์ */
-    .profile {
+    /* 🌸 วงกลม profile */
+    .profile-wrap {
+      width: 180px;
+      height: 180px;
+      margin: auto;
+      border-radius: 50%;
+      background: white;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      /* ✨ glow */
+      box-shadow: 0 0 60px rgba(255, 150, 180, 0.4);
+    }
+
+    /* 🖼 รูปโปรไฟล์ */
+    .profile-wrap img {
       width: 150px;
       height: 150px;
       border-radius: 50%;
       object-fit: cover;
-
-      box-shadow: 0 0 40px rgba(255,150,180,0.6);
     }
 
-    /* 📝 text PNG */
-    .text-img {
+    /* 📝 ชื่อ (PNG) */
+    .name-img {
       width: 220px;
-      margin-top: 15px;
+      margin-top: 25px;
+    }
+
+    /* 📝 status (PNG) */
+    .status-img {
+      width: 180px;
+      margin-top: 10px;
     }
 
     /* 🔘 ปุ่ม */
-    .btn {
-      margin-top: 20px;
-      padding: 12px 35px;
-      border-radius: 25px;
+    .next-btn {
+      margin-top: 40px;
+      padding: 12px 40px;
+
       border: none;
-      background: #ff8fb1;
+      border-radius: 30px;
+
+      background: linear-gradient(135deg, #ff8fb1, #ff6f91);
       color: white;
       font-size: 16px;
 
-      box-shadow: 0 8px 20px rgba(255,150,180,0.5);
       cursor: pointer;
+
+      /* ✨ animation */
+      transition: 0.3s;
+      box-shadow: 0 10px 20px rgba(255, 120, 150, 0.3);
     }
 
-    .btn:hover {
-      background: #ff6f9d;
+    .next-btn:hover {
       transform: scale(1.05);
+      box-shadow: 0 0 25px rgba(255, 120, 150, 0.6);
     }
-
   </style>
 </head>
 
 <body>
 
-<!-- 🌸 layer -->
-<div class="overlay"></div>
+  <div class="container">
 
-<div class="container">
+    <!-- 🌸 profile -->
+    <div class="profile-wrap">
+      <img src="pfp2.PNG">
+    </div>
 
-  <!-- 👤 โปรไฟล์ -->
-  <img class="profile" src="pfp2.PNG">
+    <!-- 📝 text (PNG) -->
+    <img src="text2.PNG" class="name-img">
+    <img src="status.PNG" class="status-img">
 
-  <!-- 📝 text -->
-  <br>
-  <img class="text-img" src="text2.PNG">
+    <!-- 🔘 button -->
+    <br>
+    <button class="next-btn" onclick="location.href='main.html'">
+      next
+    </button>
 
-  <!-- 🔘 ปุ่ม -->
-  <br>
-  <a href="main.html">
-    <button class="btn">next</button>
-  </a>
-
-</div>
+  </div>
 
 </body>
 </html>
