@@ -1,124 +1,96 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Konamew</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Konamew</title>
 
 <style>
-body {
+/* 🌸 RESET */
+* {
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
   font-family: sans-serif;
-  background: linear-gradient(to bottom, #fff7fa, #ffeef5);
+}
+
+/* 🌸 BODY + THEME */
+body {
+  background: linear-gradient(to bottom, #fff5f8, #ffeaf1);
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
   overflow-x: hidden;
+  cursor: url('https://cdn-icons-png.flaticon.com/128/833/833472.png'), auto;
 }
 
-/* 💻 CENTER LAYOUT */
+/* 🌸 CONTAINER (แก้คอมโล่ง) */
 .container {
-  max-width: 500px;
-  margin: auto;
-}
-
-/* 🌸 FLOWERS */
-.flowers {
-  position: fixed;
   width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 0;
+  max-width: 700px;
+  padding: 20px;
+  padding-bottom: 60px;
 }
 
-.flowers img {
-  position: absolute;
-  width: 20px;
-  opacity: 0.4;
-  animation: float 12s linear infinite;
-}
-
-@keyframes float {
-  0% { transform: translateY(100vh) rotate(0deg); }
-  100% { transform: translateY(-10vh) rotate(360deg); }
-}
-
-/* ✨ SPARKLE */
-.sparkle {
-  position: absolute;
-  width: 6px;
-  height: 6px;
-  background: white;
-  border-radius: 50%;
-  box-shadow: 0 0 10px white;
-  animation: sparkle 2s infinite ease-in-out;
-}
-
-@keyframes sparkle {
-  0%,100% { opacity: 0; }
-  50% { opacity: 1; }
-}
-
-/* HEADER */
+/* 🌸 HEADER */
 .header {
-  background: #f29bb2;
-  padding: 12px;
+  background: #d97b8d;
+  padding: 10px;
+  border-radius: 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  z-index: 1;
-  position: relative;
 }
 
-.logo { height: 45px; }
-.cat { height: 35px; }
-
-/* WELCOME */
-.welcome-box {
-  margin: 15px;
-  border-radius: 20px;
-  overflow: hidden;
-  position: relative;
+/* 🌸 WELCOME */
+.welcome {
+  margin: 15px 0;
 }
 
-.welcome-bg { width: 100%; }
-.welcome-text {
-  position: absolute;
-  top: 10px;
-  left: 15px;
-  width: 200px;
+.welcome img {
+  width: 100%;
+  border-radius: 15px;
+  box-shadow: 0 10px 20px rgba(255,150,180,0.2);
 }
 
-/* MENU */
+/* 🌸 MENU */
 .menu {
   display: flex;
-  justify-content: space-around;
-  margin: 15px;
+  justify-content: space-between;
+  margin: 15px 0;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
 .menu button {
-  border: 2px solid #f4a6b8;
+  flex: 1;
+  padding: 10px;
+  border-radius: 20px;
+  border: 2px solid #eaa1b0;
   background: white;
-  border-radius: 25px;
-  padding: 8px 16px;
-  color: #e07a96;
+  color: #c97b8c;
   font-weight: bold;
-  transition: 0.2s;
+  transition: 0.3s;
 }
 
 .menu button:hover {
-  transform: scale(1.1);
-  background: #ffe4ec;
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 5px 15px rgba(255,150,180,0.4);
 }
 
+/* 🌸 SECTION */
 h2 {
-  margin: 15px;
-  color: #7a5a62;
+  margin: 20px 0 10px;
+  color: #6e5a5f;
 }
 
-/* 🎠 SLIDER */
+/* 🌸 SLIDER */
 .slider {
-  margin: 15px;
-  border-radius: 20px;
-  overflow: hidden;
-  height: 260px;
   position: relative;
+  width: 100%;
+  height: 280px;
+  overflow: hidden;
+  border-radius: 20px;
 }
 
 .slider img {
@@ -127,22 +99,21 @@ h2 {
   object-fit: cover;
   position: absolute;
   opacity: 0;
-  transition: 0.6s;
+  transition: opacity 0.6s;
 }
 
 .slider img.active {
   opacity: 1;
 }
 
-/* 🔥 NAV BUTTON */
+/* 🌸 NAV */
 .nav {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(255,255,255,0.7);
+  background: rgba(255,255,255,0.8);
   border: none;
-  font-size: 22px;
-  padding: 5px 10px;
+  padding: 10px;
   border-radius: 50%;
   cursor: pointer;
 }
@@ -150,114 +121,155 @@ h2 {
 .prev { left: 10px; }
 .next { right: 10px; }
 
-/* QUEUE */
+/* 🌸 CARD */
 .card {
-  background: white;
-  margin: 15px;
-  padding: 15px;
+  background: rgba(255,255,255,0.8);
+  backdrop-filter: blur(10px);
   border-radius: 20px;
-  box-shadow: 0 10px 25px rgba(255,180,200,0.4);
+  padding: 20px;
+  box-shadow: 0 10px 30px rgba(255,150,180,0.2);
   position: relative;
+  transition: 0.3s;
 }
 
-.badge {
+.card:hover {
+  transform: translateY(-5px);
+}
+
+/* 🌸 QUEUE BOX */
+.queue-box {
   position: absolute;
   right: 10px;
   top: -10px;
-  background: #ffe8a3;
+  background: #f3df9c;
   padding: 10px;
-  border-radius: 12px;
+  border-radius: 10px;
 }
 
-.badge span {
-  color: #ff6fa0;
-  font-size: 20px;
-}
-
+/* 🌸 PROGRESS */
 .progress {
+  margin-top: 10px;
   height: 10px;
-  background: #eee;
+  background: #ddd;
   border-radius: 10px;
   overflow: hidden;
 }
 
 .progress-bar {
-  height: 100%;
   width: 70%;
-  background: linear-gradient(to right, #ff9ab5, #a5c8ff);
+  height: 100%;
+  background: linear-gradient(to right, #ff9ab5, #9ab6ff);
 }
 
+/* ✨ SPARKLE BACKGROUND */
+body::after {
+  content: "";
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background-image: radial-gradient(white 1px, transparent 1px);
+  background-size: 80px 80px;
+  opacity: 0.15;
+  animation: sparkleMove 20s linear infinite;
+}
+
+@keyframes sparkleMove {
+  from { transform: translateY(0); }
+  to { transform: translateY(-80px); }
+}
+
+/* 🌸 FLOWER FLOAT */
+body::before {
+  content: "🌸 🌸 🌸 🌸 🌸 🌸 🌸";
+  position: fixed;
+  width: 100%;
+  top: -50px;
+  font-size: 18px;
+  opacity: 0.25;
+  animation: fall 15s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes fall {
+  0% { transform: translateY(-50px) rotate(0deg); }
+  100% { transform: translateY(100vh) rotate(360deg); }
+}
+
+/* ✨ SPARKLE FOLLOW MOUSE */
+.sparkle {
+  position: fixed;
+  width: 6px;
+  height: 6px;
+  background: white;
+  border-radius: 50%;
+  pointer-events: none;
+  animation: fade 1s forwards;
+}
+
+@keyframes fade {
+  to {
+    opacity: 0;
+    transform: scale(2);
+  }
+}
 </style>
 </head>
 
 <body>
 
-<!-- 🌸 BACKGROUND EFFECT -->
-<div class="flowers">
-  <img src="BgFlower.PNG" style="left:10%;">
-  <img src="BgFlower.PNG" style="left:60%;">
-  <div class="sparkle" style="top:30%; left:50%;"></div>
-</div>
-
 <div class="container">
 
-<!-- HEADER -->
-<div class="header">
-  <img src="logokonamew.PNG" class="logo">
-  <img src="logocat.PNG" class="cat">
-</div>
-
-<!-- WELCOME -->
-<div class="welcome-box">
-  <img src="bgwelcome.PNG" class="welcome-bg">
-  <img src="welcome.PNG" class="welcome-text">
-</div>
-
-<!-- MENU -->
-<div class="menu">
-  <button>Home</button>
-  <button>T.O.S</button>
-  <button>Price</button>
-  <button>Contact</button>
-</div>
-
-<!-- PORTFOLIO -->
-<h2>Portfolio</h2>
-
-<div class="slider">
-  <button class="nav prev" onclick="prevSlide()">‹</button>
-
-  <img src="P1.JPG" class="active">
-  <img src="P2.jpg">
-  <img src="P3.JPG">
-  <img src="P4.JPG">
-
-  <button class="nav next" onclick="nextSlide()">›</button>
-</div>
-
-<!-- QUEUE -->
-<h2>Queue</h2>
-
-<div class="card">
-  <div class="badge">
-    Queue<br><span>1</span>
+  <!-- HEADER -->
+  <div class="header">
+    <img src="logokonamew.PNG" height="40">
+    <img src="logocat.PNG" height="40">
   </div>
 
-  <h3>Client <span style="color:#e3a3b0;">Vgen</span></h3>
-  <p>Service : head shot</p>
-  <p style="color:#e3a3b0;">Progress : done</p>
-
-  <div class="progress">
-    <div class="progress-bar"></div>
+  <!-- WELCOME -->
+  <div class="welcome">
+    <img src="bgwelcome.PNG">
   </div>
-</div>
+
+  <!-- MENU -->
+  <div class="menu">
+    <button>Home</button>
+    <button>T.O.S</button>
+    <button>Price</button>
+    <button>Contact</button>
+  </div>
+
+  <!-- PORTFOLIO -->
+  <h2>Portfolio</h2>
+  <div class="slider">
+    <img src="P1.JPG" class="active">
+    <img src="P2.jpg">
+    <img src="P3.JPG">
+    <img src="P4.JPG">
+
+    <button class="nav prev" onclick="prevSlide()">‹</button>
+    <button class="nav next" onclick="nextSlide()">›</button>
+  </div>
+
+  <!-- QUEUE -->
+  <h2>Queue</h2>
+  <div class="card">
+    <div class="queue-box">Queue 1</div>
+    <h3>Client <span style="color:#eaa1b0;">Vgen</span></h3>
+    <p>Service : head shot</p>
+    <p style="color:#eaa1b0;">Progress : done</p>
+
+    <div class="progress">
+      <div class="progress-bar"></div>
+    </div>
+  </div>
 
 </div>
 
-<!-- 🎠 SCRIPT -->
 <script>
-let slides = document.querySelectorAll(".slider img");
+/* 🎞 SLIDER */
 let index = 0;
+const slides = document.querySelectorAll(".slider img");
 
 function showSlide(i){
   slides.forEach(s => s.classList.remove("active"));
@@ -275,6 +287,17 @@ function prevSlide(){
 }
 
 setInterval(nextSlide, 3000);
+
+/* ✨ SPARKLE FOLLOW MOUSE */
+document.addEventListener("mousemove", e => {
+  let s = document.createElement("div");
+  s.className = "sparkle";
+  s.style.left = e.clientX + "px";
+  s.style.top = e.clientY + "px";
+  document.body.appendChild(s);
+
+  setTimeout(() => s.remove(), 1000);
+});
 </script>
 
 </body>
