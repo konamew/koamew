@@ -3,216 +3,215 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Konamew</title>
+
+<title>konamew</title>
 
 <style>
 /* 🌸 RESET */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: sans-serif;
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family: 'Segoe UI', sans-serif;
+  -webkit-tap-highlight-color: transparent;
 }
 
-/* 🌸 BODY + THEME */
-body {
-  background: linear-gradient(to bottom, #fff5f8, #ffeaf1);
-  display: flex;
-  justify-content: center;
-  min-height: 100vh;
-  overflow-x: hidden;
-  cursor: default;
+html{
+  scroll-behavior:smooth;
 }
 
-/* 🌸 CONTAINER (แก้คอมโล่ง) */
-.container {
-  width: 100%;
-  max-width: 700px;
-  padding: 20px;
-  padding-bottom: 60px;
+body{
+  background: linear-gradient(#fff7fa,#ffeef5);
+  display:flex;
+  justify-content:center;
+}
+
+/* 💖 จำกัดความกว้าง (แก้ปัญหาคอมโล่ง) */
+.container{
+  width:100%;
+  max-width:420px;
+  padding:15px;
 }
 
 /* 🌸 HEADER */
-.header {
-  background: #d97b8d;
-  padding: 10px;
-  border-radius: 10px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.header{
+  background:#d98194;
+  border-radius:20px;
+  padding:15px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  box-shadow:0 6px 20px rgba(255,182,193,0.4);
 }
 
-/* 🌸 WELCOME */
-.welcome {
-  margin: 15px 0;
+.header img{
+  height:40px;
 }
 
-.welcome img {
-  width: 100%;
-  border-radius: 15px;
-  box-shadow: 0 10px 20px rgba(255,150,180,0.2);
+/* 🌈 WELCOME */
+.welcome{
+  margin-top:15px;
 }
 
-/* 🌸 MENU */
-.menu {
-  display: flex;
-  justify-content: space-between;
-  margin: 15px 0;
-  flex-wrap: wrap;
-  gap: 10px;
+.welcome img{
+  width:100%;
+  border-radius:20px;
+  box-shadow:0 10px 25px rgba(255,182,193,0.4);
 }
 
-.menu button {
-  flex: 1;
-  padding: 10px;
-  border-radius: 20px;
-  border: 2px solid #eaa1b0;
-  background: white;
-  color: #c97b8c;
-  font-weight: bold;
-  transition: 0.3s;
+/* 🎀 MENU */
+.menu{
+  display:flex;
+  justify-content:space-between;
+  margin:15px 0;
 }
 
-.menu button:hover {
-  transform: translateY(-2px) scale(1.05);
-  box-shadow: 0 5px 15px rgba(255,150,180,0.4);
+.menu button{
+  flex:1;
+  margin:5px;
+  padding:10px;
+  border-radius:20px;
+  border:2px solid #e6a6b3;
+  background:white;
+  color:#d98194;
+  font-weight:bold;
+  transition:0.2s;
 }
 
-/* 🌸 SECTION */
-h2 {
-  margin: 20px 0 10px;
-  color: #6e5a5f;
+.menu button:hover{
+  background:#ffdbe5;
+  transform:translateY(-3px);
 }
 
-/* 🌸 SLIDER */
-.slider {
-  position: relative;
-  width: 100%;
-  height: 280px;
-  overflow: hidden;
-  border-radius: 20px;
+.menu button:active{
+  transform:scale(0.95);
 }
 
-.slider img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  position: absolute;
-  opacity: 0;
-  transition: opacity 0.6s;
+/* ✨ PORTFOLIO */
+.section-title{
+  font-size:24px;
+  margin:20px 0 10px;
+  color:#6b5b5b;
 }
 
-.slider img.active {
-  opacity: 1;
+.slider{
+  position:relative;
+  width:100%;
+  height:250px;
+  overflow:hidden;
+  border-radius:20px;
+  box-shadow:0 10px 25px rgba(255,182,193,0.4);
 }
 
-/* 🌸 NAV */
-.nav {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(255,255,255,0.8);
-  border: none;
-  padding: 10px;
-  border-radius: 50%;
-  cursor: pointer;
+.slide{
+  position:absolute;
+  width:100%;
+  height:100%;
+  opacity:0;
+  transition:opacity 0.6s;
 }
 
-.prev { left: 10px; }
-.next { right: 10px; }
-
-/* 🌸 CARD */
-.card {
-  background: rgba(255,255,255,0.8);
-  backdrop-filter: blur(10px);
-  border-radius: 20px;
-  padding: 20px;
-  box-shadow: 0 10px 30px rgba(255,150,180,0.2);
-  position: relative;
-  transition: 0.3s;
+.slide.active{
+  opacity:1;
 }
 
-.card:hover {
-  transform: translateY(-5px);
+.slide img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
 }
 
-/* 🌸 QUEUE BOX */
-.queue-box {
-  position: absolute;
-  right: 10px;
-  top: -10px;
-  background: #f3df9c;
-  padding: 10px;
-  border-radius: 10px;
+/* ปุ่มสไลด์ */
+.nav{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  background:white;
+  border:none;
+  border-radius:50%;
+  width:35px;
+  height:35px;
+  opacity:0.8;
 }
 
-/* 🌸 PROGRESS */
-.progress {
-  margin-top: 10px;
-  height: 10px;
-  background: #ddd;
-  border-radius: 10px;
-  overflow: hidden;
+.prev{ left:10px;}
+.next{ right:10px;}
+
+/* 💖 QUEUE */
+.card{
+  background:white;
+  padding:15px;
+  border-radius:20px;
+  box-shadow:0 10px 25px rgba(255,182,193,0.3);
+  position:relative;
 }
 
-.progress-bar {
-  width: 70%;
-  height: 100%;
-  background: linear-gradient(to right, #ff9ab5, #9ab6ff);
+.queue-tag{
+  position:absolute;
+  right:10px;
+  top:10px;
+  background:#ffeaa7;
+  padding:5px 10px;
+  border-radius:10px;
+  font-size:14px;
 }
 
-/* ✨ SPARKLE BACKGROUND */
-body::after {
-  content: "";
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  background-image: radial-gradient(white 1px, transparent 1px);
-  background-size: 80px 80px;
-  opacity: 0.15;
-  animation: sparkleMove 20s linear infinite;
+.progress{
+  height:8px;
+  background:#eee;
+  border-radius:10px;
+  overflow:hidden;
+  margin-top:10px;
 }
 
-@keyframes sparkleMove {
-  from { transform: translateY(0); }
-  to { transform: translateY(-80px); }
+.progress-bar{
+  width:70%;
+  height:100%;
+  background:linear-gradient(to right,#ff9eb5,#8fbaff);
 }
 
-/* 🌸 FLOWER FLOAT */
-body::before {
-  content: "🌸";
-  position: fixed;
-  width: 100%;
-  top: -50px;
-  font-size: 18px;
-  opacity: 0.25;
-  animation: fall 15s linear infinite;
-  pointer-events: none;
+/* ✨ sparkle hover */
+button:hover::after{
+  content:"✨";
+  position:absolute;
+  animation:sparkle 1s infinite;
 }
 
-@keyframes fall {
-  0% { transform: translateY(-50px) rotate(0deg); }
-  100% { transform: translateY(100vh) rotate(360deg); }
+@keyframes sparkle{
+  0%{opacity:0;}
+  50%{opacity:1;}
+  100%{opacity:0;}
 }
 
-/* ✨ SPARKLE FOLLOW MOUSE */
-.sparkle {
-  position: fixed;
-  width: 6px;
-  height: 6px;
-  background: white;
-  border-radius: 50%;
-  pointer-events: none;
-  animation: fade 1s forwards;
+/* 🌸 floating flowers */
+body::before{
+  content:"🌸";
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  opacity:0.1;
+  animation:float 20s linear infinite;
+  pointer-events:none;
 }
 
-@keyframes fade {
-  to {
-    opacity: 0;
-    transform: scale(2);
+@keyframes float{
+  0%{transform:translateY(0);}
+  100%{transform:translateY(-100px);}
+}
+
+/* 💻 Desktop ปรับนิดเดียว */
+@media(min-width:768px){
+  .container{
+    max-width:600px;
+  }
+
+  .slider{
+    height:320px;
   }
 }
+
 </style>
 </head>
 
@@ -220,84 +219,76 @@ body::before {
 
 <div class="container">
 
-  <!-- HEADER -->
-  <div class="header">
-    <img src="logokonamew.PNG" height="40">
-    <img src="logocat.PNG" height="40">
+<!-- HEADER -->
+<div class="header">
+  <img src="logokonamew.PNG">
+  <img src="logocat.PNG">
+</div>
+
+<!-- WELCOME -->
+<div class="welcome">
+  <img src="bgwelcome.PNG">
+</div>
+
+<!-- MENU -->
+<div class="menu">
+  <button>Home</button>
+  <button>T.O.S</button>
+  <button>Price</button>
+  <button>Contact</button>
+</div>
+
+<!-- PORTFOLIO -->
+<div class="section-title">Portfolio</div>
+
+<div class="slider">
+  <div class="slide active"><img src="P1.JPG"></div>
+  <div class="slide"><img src="P2.jpg"></div>
+  <div class="slide"><img src="P3.JPG"></div>
+  <div class="slide"><img src="P4.JPG"></div>
+
+  <button class="nav prev" onclick="prev()">‹</button>
+  <button class="nav next" onclick="next()">›</button>
+</div>
+
+<!-- QUEUE -->
+<div class="section-title">Queue</div>
+
+<div class="card">
+  <div class="queue-tag">Queue 1</div>
+
+  <h3>Client <span style="color:#d98194">Vgen</span></h3>
+  <p>Service : head shot</p>
+  <p style="color:#d98194">Progress : done</p>
+
+  <div class="progress">
+    <div class="progress-bar"></div>
   </div>
-
-  <!-- WELCOME -->
-  <div class="welcome">
-    <img src="bgwelcome.PNG">
-  </div>
-
-  <!-- MENU -->
-  <div class="menu">
-    <button>Home</button>
-    <button>T.O.S</button>
-    <button>Price</button>
-    <button>Contact</button>
-  </div>
-
-  <!-- PORTFOLIO -->
-  <h2>Portfolio</h2>
-  <div class="slider">
-    <img src="P1.JPG" class="active">
-    <img src="P2.jpg">
-    <img src="P3.JPG">
-    <img src="P4.JPG">
-
-    <button class="nav prev" onclick="prevSlide()">‹</button>
-    <button class="nav next" onclick="nextSlide()">›</button>
-  </div>
-
-  <!-- QUEUE -->
-  <h2>Queue</h2>
-  <div class="card">
-    <div class="queue-box">Queue 1</div>
-    <h3>Client <span style="color:#eaa1b0;">Vgen</span></h3>
-    <p>Service : head shot</p>
-    <p style="color:#eaa1b0;">Progress : done</p>
-
-    <div class="progress">
-      <div class="progress-bar"></div>
-    </div>
-  </div>
+</div>
 
 </div>
 
 <script>
-/* 🎞 SLIDER */
 let index = 0;
-const slides = document.querySelectorAll(".slider img");
+const slides = document.querySelectorAll(".slide");
 
 function showSlide(i){
-  slides.forEach(s => s.classList.remove("active"));
+  slides.forEach(s=>s.classList.remove("active"));
   slides[i].classList.add("active");
 }
 
-function nextSlide(){
-  index = (index + 1) % slides.length;
+function next(){
+  index = (index+1)%slides.length;
   showSlide(index);
 }
 
-function prevSlide(){
-  index = (index - 1 + slides.length) % slides.length;
+function prev(){
+  index = (index-1+slides.length)%slides.length;
   showSlide(index);
 }
 
-setInterval(nextSlide, 3000);
-
-/* ✨ SPARKLE FOLLOW MOUSE */
-document.addEventListener("mousemove", e => {
-  let s = document.createElement("div");
-  s.className = "sparkle";
-  s.style.left = e.clientX + "px";
-  s.style.top = e.clientY + "px";
-  document.body.appendChild(s);
-
-  setTimeout(() => s.remove(), 1000);
-});
+/* auto slide */
+setInterval(next,4000);
 </script>
 
 </body>
