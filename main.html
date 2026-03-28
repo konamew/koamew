@@ -7,12 +7,12 @@
 
 <style>
 
-/* RESET */
+/* 🌸 RESET */
 *{
   margin:0;
   padding:0;
   box-sizing:border-box;
-  font-family:'Segoe UI',sans-serif;
+  font-family: 'Segoe UI', sans-serif;
 }
 
 body{
@@ -21,14 +21,14 @@ body{
   justify-content:center;
 }
 
-/* container */
+/* 💖 CONTAINER */
 .container{
   width:100%;
   max-width:420px;
   padding:15px;
 }
 
-/* header */
+/* 🌸 HEADER */
 .header{
   background:#d98194;
   border-radius:20px;
@@ -39,9 +39,11 @@ body{
   box-shadow:0 8px 25px rgba(255,182,193,0.4);
 }
 
-.header img{ height:40px; }
+.header img{
+  height:40px;
+}
 
-/* welcome */
+/* 🌈 WELCOME */
 .welcome img{
   width:100%;
   border-radius:20px;
@@ -49,55 +51,40 @@ body{
   box-shadow:0 10px 30px rgba(255,182,193,0.4);
 }
 
-/* MENU */
+/* 🎀 MENU (นุ่ม + ไม่มีขอบ) */
 .menu{
   display:flex;
-  gap:10px;
   margin:15px 0;
 }
 
 .menu button{
   flex:1;
+  margin:5px;
   padding:10px;
   border-radius:20px;
   border:none;
-  background: linear-gradient(135deg,#fff,#fff0f5);
+  background:#fff;
   color:#d98194;
   font-weight:bold;
-  box-shadow:0 5px 15px rgba(255,182,193,0.3);
+
+  box-shadow:0 5px 15px rgba(255,182,193,0.25);
   transition:0.25s;
-  position:relative;
 }
 
-.menu button:active{
-  background: linear-gradient(135deg,#ffd6e5,#d6e8ff);
-  transform:scale(0.95);
+.menu button:hover{
+  background: linear-gradient(135deg,#ffdbe5,#d6ecff);
+  transform:translateY(-2px);
 }
 
-/* sparkle */
-.menu button:hover::after{
-  content:"✨";
-  position:absolute;
-  right:8px;
-  top:-5px;
-  animation:sparkle 1s infinite;
-}
-
-@keyframes sparkle{
-  0%{opacity:0;}
-  50%{opacity:1;}
-  100%{opacity:0;}
-}
-
-/* title */
+/* ✨ TITLE */
 .section-title{
-  font-size:26px;
-  font-weight:800;
+  font-size:24px;
+  font-weight:700;
   margin:20px 0 10px;
   color:#6b5b5b;
 }
 
-/* slider */
+/* 🎨 SLIDER */
 .slider{
   position:relative;
   height:260px;
@@ -114,7 +101,7 @@ body{
   transition:0.5s;
 }
 
-.slide.active{ opacity:1; }
+.slide.active{opacity:1;}
 
 .slide img{
   width:100%;
@@ -123,7 +110,7 @@ body{
   cursor:pointer;
 }
 
-/* nav */
+/* ปุ่ม */
 .nav{
   position:absolute;
   top:50%;
@@ -135,74 +122,62 @@ body{
   height:35px;
 }
 
-.prev{ left:10px;}
-.next{ right:10px;}
+.prev{left:10px;}
+.next{right:10px;}
 
-/* POPUP */
-.popup{
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,0.3);
-  backdrop-filter:blur(8px);
-  display:none;
-  justify-content:center;
-  align-items:center;
-}
-
-.popup img{
-  max-width:90%;
-  max-height:80%;
-  border-radius:20px;
-  animation:zoom 0.3s;
-}
-
-@keyframes zoom{
-  from{transform:scale(0.8); opacity:0;}
-  to{transform:scale(1); opacity:1;}
-}
-
-/* queue */
+/* 💖 QUEUE (เหมือนรูปสอง) */
 .queue-card{
   position:relative;
-  background:#ffffff;
-  border-radius:25px;
+  background:#fff;
+  border-radius:20px;
   padding:18px;
-  margin-top:10px;
+  margin-top:15px;
 
-  box-shadow:
-    0 10px 30px rgba(255,182,193,0.35),
-    inset 0 1px 5px rgba(255,255,255,0.6);
+  box-shadow:0 6px 18px rgba(255,182,193,0.2);
 }
 
+/* badge */
 .queue-badge{
   position:absolute;
-  right:15px;
-  top:15px;
+  right:12px;
+  top:12px;
 
-  background: linear-gradient(#ffeaa7,#ffd6f1);
-  border-radius:15px;
-  padding:8px 12px;
+  background: linear-gradient(135deg,#ffeaa7,#ffd6f1);
+  border-radius:12px;
+  padding:6px 10px;
+
+  text-align:center;
 }
 
+.queue-badge span{
+  font-size:11px;
+}
+
+.queue-badge b{
+  font-size:18px;
+  color:#ff6fa5;
+}
+
+/* text */
 .client{
   font-size:22px;
-  font-weight:bold;
+  font-weight:700;
 }
 
 .client span{
   color:#e89aac;
-  margin-left:5px;
+  font-size:15px;
 }
 
+/* progress */
 .progress-bar{
-  height:10px;
-  background:#eee;
+  height:8px;
+  background:#eaeaea;
   border-radius:10px;
   overflow:hidden;
   margin-top:10px;
 }
 
-/* shimmer progress */
 .progress-fill{
   width:70%;
   height:100%;
@@ -210,12 +185,9 @@ body{
   border-radius:10px;
   position:relative;
   overflow:hidden;
-
-  box-shadow:
-    0 0 12px rgba(255,182,193,0.7),
-    0 0 20px rgba(173,216,230,0.6);
 }
 
+/* ✨ shimmer */
 .progress-fill::after{
   content:"";
   position:absolute;
@@ -227,7 +199,7 @@ body{
   background: linear-gradient(
     120deg,
     transparent,
-    rgba(255,255,255,0.85),
+    rgba(255,255,255,0.8),
     transparent
   );
 
@@ -239,7 +211,7 @@ body{
   100%{ left:120%; }
 }
 
-/* 🌸 flower (background only) */
+/* 🌸 ดอกไม้ (หลังสุด) */
 .flower{
   position:fixed;
   top:-20px;
@@ -253,6 +225,22 @@ body{
   to{
     transform:translateY(110vh) rotate(360deg);
   }
+}
+
+/* 🌙 POPUP */
+.popup{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.4);
+  backdrop-filter:blur(6px);
+  display:none;
+  justify-content:center;
+  align-items:center;
+}
+
+.popup img{
+  max-width:90%;
+  border-radius:20px;
 }
 
 </style>
@@ -281,10 +269,10 @@ body{
 <div class="section-title">Portfolio</div>
 
 <div class="slider">
-  <div class="slide active"><img src="P1.JPG" onclick="openPopup(0)"></div>
-  <div class="slide"><img src="P2.jpg" onclick="openPopup(1)"></div>
-  <div class="slide"><img src="P3.JPG" onclick="openPopup(2)"></div>
-  <div class="slide"><img src="P4.JPG" onclick="openPopup(3)"></div>
+  <div class="slide active"><img src="P1.JPG" onclick="openPopup(this.src)"></div>
+  <div class="slide"><img src="P2.jpg" onclick="openPopup(this.src)"></div>
+  <div class="slide"><img src="P3.JPG" onclick="openPopup(this.src)"></div>
+  <div class="slide"><img src="P4.JPG" onclick="openPopup(this.src)"></div>
 
   <button class="nav prev" onclick="prev()">‹</button>
   <button class="nav next" onclick="next()">›</button>
@@ -299,10 +287,7 @@ body{
     <b>1</b>
   </div>
 
-  <h3 class="client">
-    Client <span>Vgen</span>
-  </h3>
-
+  <h3 class="client">Client <span>Vgen</span></h3>
   <p>Service : head shot</p>
   <p style="color:#e89aac;">Progress : done</p>
 
@@ -316,15 +301,14 @@ body{
 
 <!-- popup -->
 <div class="popup" id="popup" onclick="closePopup()">
-  <button onclick="prevPopup(event)" style="position:absolute;left:10px;">‹</button>
-  <img id="popupImg">
-  <button onclick="nextPopup(event)" style="position:absolute;right:10px;">›</button>
+  <img id="popup-img">
 </div>
 
 <script>
 
-let index=0;
-const slides=document.querySelectorAll(".slide");
+/* slider */
+let index = 0;
+const slides = document.querySelectorAll(".slide");
 
 function showSlide(i){
   slides.forEach(s=>s.classList.remove("active"));
@@ -332,57 +316,38 @@ function showSlide(i){
 }
 
 function next(){
-  index=(index+1)%slides.length;
+  index = (index+1)%slides.length;
   showSlide(index);
 }
 
 function prev(){
-  index=(index-1+slides.length)%slides.length;
+  index = (index-1+slides.length)%slides.length;
   showSlide(index);
 }
 
 setInterval(next,4000);
 
-/* popup gallery */
-let popupIndex=0;
-const imgs=document.querySelectorAll(".slide img");
-
-function openPopup(i){
-  popupIndex=i;
+/* popup */
+function openPopup(src){
   document.getElementById("popup").style.display="flex";
-  document.getElementById("popupImg").src=imgs[i].src;
-}
-
-function nextPopup(e){
-  e.stopPropagation();
-  popupIndex=(popupIndex+1)%imgs.length;
-  document.getElementById("popupImg").src=imgs[popupIndex].src;
-}
-
-function prevPopup(e){
-  e.stopPropagation();
-  popupIndex=(popupIndex-1+imgs.length)%imgs.length;
-  document.getElementById("popupImg").src=imgs[popupIndex].src;
+  document.getElementById("popup-img").src=src;
 }
 
 function closePopup(){
   document.getElementById("popup").style.display="none";
 }
 
-/* 🌸 flower */
-setInterval(()=>{
-  const f=document.createElement("div");
+/* 🌸 สร้างดอกไม้ */
+for(let i=0;i<10;i++){
+  let f=document.createElement("div");
   f.className="flower";
-  f.innerText="🌸";
+  f.innerHTML="🌸";
   f.style.left=Math.random()*100+"vw";
-  f.style.animationDuration=(5+Math.random()*5)+"s";
+  f.style.animationDuration=5+Math.random()*5+"s";
   document.body.appendChild(f);
-
-  setTimeout(()=>f.remove(),10000);
-},700);
+}
 
 </script>
 
 </body>
 </html>
-  
