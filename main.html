@@ -55,22 +55,26 @@ body{
   margin:15px 0;
 }
 
-.menu button{
+.menu a {
   flex:1;
   margin:5px;
   padding:10px;
   border-radius:20px;
-  border:none;
+  text-align:center;
+  text-decoration:none;
   background:#fff;
   color:#d98194;
   font-weight:bold;
   box-shadow:0 5px 15px rgba(255,182,193,0.25);
   transition:0.25s;
-
-  position:relative; /* 👈 ใส่ตรงนี้ */
+  position:relative;
 }
 
-  .menu button:hover::after{
+.menu a:hover{
+  background: linear-gradient(135deg,#ffdbe5,#d6ecff);
+  transform:translateY(-2px);
+}
+  .menu a:hover::after{
   content:"✨";
   position:absolute;
   right:8px;
@@ -78,11 +82,6 @@ body{
   font-size:14px;
   animation:sparkle 1s infinite;
 }
-.menu button:hover{
-  background: linear-gradient(135deg,#ffdbe5,#d6ecff);
-  transform:translateY(-2px);
-}
-  
 
 /* title */
 .section-title{
@@ -269,20 +268,10 @@ body{
 
 <div class="container">
 
-<div class="header">
-  <img src="logokonamew.PNG">
-  <img src="logocat.PNG">
-</div>
-
+<div id>="header"></div> 
+  
 <div class="welcome">
   <img src="bgwelcome.PNG">
-</div>
-
-<div class="menu">
-  <button>Home</button>
-  <button>T.O.S</button>
-  <button>Price</button>
-  <button>Contact</button>
 </div>
 
 <div class="section-title">Portfolio</div>
@@ -364,7 +353,13 @@ document.getElementById("popup").addEventListener("click",(e)=>{
     document.getElementById("popup").style.display="none";
   }
 });
-
+  
+<script>
+fetch("header.html")
+.then(res => res.text())
+.then(data => {
+  document.getElementById("header").innerHTML = data;
+});
 </script>
 
 </body>
