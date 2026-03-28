@@ -7,12 +7,12 @@
 
 <style>
 
-/* 🌸 RESET */
+/* RESET */
 *{
   margin:0;
   padding:0;
   box-sizing:border-box;
-  font-family: 'Segoe UI', sans-serif;
+  font-family:'Segoe UI',sans-serif;
 }
 
 body{
@@ -21,14 +21,14 @@ body{
   justify-content:center;
 }
 
-/* 💖 CONTAINER */
+/* container */
 .container{
   width:100%;
   max-width:420px;
   padding:15px;
 }
 
-/* 🌸 HEADER */
+/* header */
 .header{
   background:#d98194;
   border-radius:20px;
@@ -39,11 +39,9 @@ body{
   box-shadow:0 8px 25px rgba(255,182,193,0.4);
 }
 
-.header img{
-  height:40px;
-}
+.header img{height:40px;}
 
-/* 🌈 WELCOME */
+/* welcome */
 .welcome img{
   width:100%;
   border-radius:20px;
@@ -51,7 +49,7 @@ body{
   box-shadow:0 10px 30px rgba(255,182,193,0.4);
 }
 
-/* 🎀 MENU (นุ่ม ไม่มีขอบ + 2 สี) */
+/* menu */
 .menu{
   display:flex;
   margin:15px 0;
@@ -66,7 +64,6 @@ body{
   background:#fff;
   color:#d98194;
   font-weight:bold;
-
   box-shadow:0 5px 15px rgba(255,182,193,0.25);
   transition:0.25s;
 }
@@ -76,7 +73,7 @@ body{
   transform:translateY(-2px);
 }
 
-/* ✨ TITLE */
+/* title */
 .section-title{
   font-size:24px;
   font-weight:700;
@@ -84,7 +81,7 @@ body{
   color:#6b5b5b;
 }
 
-/* 🎨 SLIDER */
+/* slider */
 .slider{
   position:relative;
   height:260px;
@@ -110,7 +107,7 @@ body{
   cursor:pointer;
 }
 
-/* ปุ่ม */
+/* nav */
 .nav{
   position:absolute;
   top:50%;
@@ -125,55 +122,34 @@ body{
 .prev{left:10px;}
 .next{right:10px;}
 
-/* 💖 QUEUE CARD */
+/* queue */
 .queue-card{
   position:relative;
-  background:#ffffff;
+  background:#fff;
   border-radius:20px;
   padding:18px;
   margin-top:15px;
-
   box-shadow:0 8px 25px rgba(255,182,193,0.25);
 }
 
-/* 🌟 BADGE = แบบในรูปคุณ */
 .queue-badge{
   position:absolute;
   right:12px;
   top:12px;
-
   background: linear-gradient(145deg,#ffeaa7,#ffd6f1);
   border-radius:18px;
   padding:10px 14px;
-
   text-align:center;
-
-  box-shadow:
-    0 10px 25px rgba(255,182,193,0.4),
-    inset 0 2px 5px rgba(255,255,255,0.6);
-}
-
-.queue-badge span{
-  display:block;
-  font-size:12px;
-  color:#7a6a6a;
 }
 
 .queue-badge b{
-  display:block;
   font-size:24px;
-  font-weight:800;
   color:#ff5c9c;
 }
 
-/* text */
 .client{
   font-size:22px;
   font-weight:700;
-}
-
-.client span{
-  color:#e89aac;
 }
 
 /* progress */
@@ -194,7 +170,6 @@ body{
   overflow:hidden;
 }
 
-/* ✨ shimmer */
 .progress-fill::after{
   content:"";
   position:absolute;
@@ -202,14 +177,7 @@ body{
   left:-60%;
   width:60%;
   height:100%;
-
-  background: linear-gradient(
-    120deg,
-    transparent,
-    rgba(255,255,255,0.8),
-    transparent
-  );
-
+  background: linear-gradient(120deg,transparent,rgba(255,255,255,0.8),transparent);
   animation: shimmer 2.5s infinite;
 }
 
@@ -218,37 +186,38 @@ body{
   100%{ left:120%; }
 }
 
-/* 🌸 ดอกไม้หลังสุด */
-.flower{
-  position:fixed;
-  top:-20px;
-  font-size:18px;
-  animation:fall linear infinite;
-  pointer-events:none;
-  z-index:-1;
-}
-
-@keyframes fall{
-  to{
-    transform:translateY(110vh) rotate(360deg);
-  }
-}
-
-/* 🌙 POPUP */
+/* 🌙 POPUP FIX */
 .popup{
   position:fixed;
   inset:0;
-  background:rgba(0,0,0,0.4);
-  backdrop-filter:blur(6px);
+  background:rgba(0,0,0,0.6);
+  backdrop-filter:blur(8px);
   display:none;
   justify-content:center;
   align-items:center;
+  z-index:999;
 }
 
 .popup img{
   max-width:90%;
   border-radius:20px;
 }
+
+/* ปุ่ม popup */
+.popup-btn{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  background:white;
+  border:none;
+  border-radius:50%;
+  width:40px;
+  height:40px;
+  font-size:20px;
+}
+
+.popup-btn.left{ left:20px; }
+.popup-btn.right{ right:20px; }
 
 </style>
 </head>
@@ -276,10 +245,10 @@ body{
 <div class="section-title">Portfolio</div>
 
 <div class="slider">
-  <div class="slide active"><img src="P1.JPG" onclick="openPopup(this.src)"></div>
-  <div class="slide"><img src="P2.jpg" onclick="openPopup(this.src)"></div>
-  <div class="slide"><img src="P3.JPG" onclick="openPopup(this.src)"></div>
-  <div class="slide"><img src="P4.JPG" onclick="openPopup(this.src)"></div>
+  <div class="slide active"><img src="P1.JPG" onclick="openPopup(0)"></div>
+  <div class="slide"><img src="P2.jpg" onclick="openPopup(1)"></div>
+  <div class="slide"><img src="P3.JPG" onclick="openPopup(2)"></div>
+  <div class="slide"><img src="P4.JPG" onclick="openPopup(3)"></div>
 
   <button class="nav prev" onclick="prev()">‹</button>
   <button class="nav next" onclick="next()">›</button>
@@ -288,71 +257,70 @@ body{
 <div class="section-title">Queue</div>
 
 <div class="queue-card">
-
-  <div class="queue-badge">
-    <span>Queue</span>
-    <b>1</b>
-  </div>
-
-  <h3 class="client">Client <span>Vgen</span></h3>
+  <div class="queue-badge"><span>Queue</span><b>1</b></div>
+  <h3 class="client">Client Vgen</h3>
   <p>Service : head shot</p>
   <p style="color:#e89aac;">Progress : done</p>
 
   <div class="progress-bar">
     <div class="progress-fill"></div>
   </div>
-
 </div>
 
 </div>
 
 <!-- popup -->
-<div class="popup" id="popup" onclick="closePopup()">
+<div class="popup" id="popup">
+  <button class="popup-btn left" onclick="popupPrev()">‹</button>
   <img id="popup-img">
+  <button class="popup-btn right" onclick="popupNext()">›</button>
 </div>
 
 <script>
 
 /* slider */
-let index = 0;
-const slides = document.querySelectorAll(".slide");
+let index=0;
+const slides=document.querySelectorAll(".slide");
 
 function showSlide(i){
   slides.forEach(s=>s.classList.remove("active"));
   slides[i].classList.add("active");
 }
 
-function next(){
-  index = (index+1)%slides.length;
-  showSlide(index);
-}
-
-function prev(){
-  index = (index-1+slides.length)%slides.length;
-  showSlide(index);
-}
-
+function next(){ index=(index+1)%slides.length; showSlide(index);}
+function prev(){ index=(index-1+slides.length)%slides.length; showSlide(index);}
 setInterval(next,4000);
 
-/* popup */
-function openPopup(src){
+/* 💖 popup FIX */
+let popupIndex=0;
+const images=["P1.JPG","P2.jpg","P3.JPG","P4.JPG"];
+
+function openPopup(i){
+  popupIndex=i;
   document.getElementById("popup").style.display="flex";
-  document.getElementById("popup-img").src=src;
+  updatePopup();
 }
 
-function closePopup(){
-  document.getElementById("popup").style.display="none";
+function updatePopup(){
+  document.getElementById("popup-img").src=images[popupIndex];
 }
 
-/* 🌸 ดอกไม้ */
-for(let i=0;i<10;i++){
-  let f=document.createElement("div");
-  f.className="flower";
-  f.innerHTML="🌸";
-  f.style.left=Math.random()*100+"vw";
-  f.style.animationDuration=5+Math.random()*5+"s";
-  document.body.appendChild(f);
+function popupNext(){
+  popupIndex=(popupIndex+1)%images.length;
+  updatePopup();
 }
+
+function popupPrev(){
+  popupIndex=(popupIndex-1+images.length)%images.length;
+  updatePopup();
+}
+
+/* ปิด popup */
+document.getElementById("popup").addEventListener("click",(e)=>{
+  if(e.target.id==="popup"){
+    document.getElementById("popup").style.display="none";
+  }
+});
 
 </script>
 
