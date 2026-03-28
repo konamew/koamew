@@ -66,12 +66,23 @@ body{
   font-weight:bold;
   box-shadow:0 5px 15px rgba(255,182,193,0.25);
   transition:0.25s;
+
+  position:relative; /* 👈 ใส่ตรงนี้ */
 }
 
+  .menu button:hover::after{
+  content:"✨";
+  position:absolute;
+  right:8px;
+  top:-5px;
+  font-size:14px;
+  animation:sparkle 1s infinite;
+}
 .menu button:hover{
   background: linear-gradient(135deg,#ffdbe5,#d6ecff);
   transform:translateY(-2px);
 }
+  
 
 /* title */
 .section-title{
@@ -81,6 +92,11 @@ body{
   color:#6b5b5b;
 }
 
+  @keyframes sparkle{
+  0%{opacity:0; transform:scale(0.8);}
+  50%{opacity:1; transform:scale(1.2);}
+  100%{opacity:0; transform:scale(0.8);}
+}
 /* slider */
 .slider{
   position:relative;
