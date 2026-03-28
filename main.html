@@ -268,7 +268,7 @@ body{
 
 <div class="container">
 
-<div id>="header"></div> 
+<div id="header"></div> 
   
 <div class="welcome">
   <img src="bgwelcome.PNG">
@@ -354,12 +354,20 @@ document.getElementById("popup").addEventListener("click",(e)=>{
   }
 });
   
+
+  </script>
+
+<!-- โหลด header -->
 <script>
 fetch("header.html")
 .then(res => res.text())
 .then(data => {
   document.getElementById("header").innerHTML = data;
 });
+</script>
+
+</body>
+</html>
 </script>
 
 </body>
