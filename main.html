@@ -49,7 +49,7 @@ body{
   box-shadow:0 10px 30px rgba(255,182,193,0.4);
 }
 
-/* 🌸 MENU NEW STYLE */
+/* MENU */
 .menu{
   display:flex;
   gap:10px;
@@ -67,10 +67,6 @@ body{
   box-shadow:0 5px 15px rgba(255,182,193,0.3);
   transition:0.25s;
   position:relative;
-}
-
-.menu button:hover{
-  transform:translateY(-3px);
 }
 
 .menu button:active{
@@ -142,7 +138,7 @@ body{
 .prev{ left:10px;}
 .next{ right:10px;}
 
-/* 💖 POPUP */
+/* POPUP */
 .popup{
   position:fixed;
   inset:0;
@@ -167,6 +163,7 @@ body{
 
 /* queue */
 .queue-card{
+  position:relative;
   background:#ffffff;
   border-radius:25px;
   padding:18px;
@@ -179,8 +176,9 @@ body{
 
 .queue-badge{
   position:absolute;
-  right:10px;
-  top:10px;
+  right:15px;
+  top:15px;
+
   background: linear-gradient(#ffeaa7,#ffd6f1);
   border-radius:15px;
   padding:8px 12px;
@@ -204,7 +202,7 @@ body{
   margin-top:10px;
 }
 
-/* ✨ PROGRESS SHIMMER */
+/* shimmer progress */
 .progress-fill{
   width:70%;
   height:100%;
@@ -241,24 +239,20 @@ body{
   100%{ left:120%; }
 }
 
-/* 🌸 FLOWER FALL */
+/* 🌸 flower (background only) */
 .flower{
   position:fixed;
   top:-20px;
   font-size:18px;
   animation:fall linear infinite;
   pointer-events:none;
+  z-index:-1;
 }
 
 @keyframes fall{
   to{
     transform:translateY(110vh) rotate(360deg);
   }
-}
-
-/* desktop */
-@media(min-width:768px){
-  .container{ max-width:600px;}
 }
 
 </style>
@@ -287,10 +281,10 @@ body{
 <div class="section-title">Portfolio</div>
 
 <div class="slider">
-  <div class="slide active"><img src="P1.JPG" onclick="openPopup(this)"></div>
-  <div class="slide"><img src="P2.jpg" onclick="openPopup(this)"></div>
-  <div class="slide"><img src="P3.JPG" onclick="openPopup(this)"></div>
-  <div class="slide"><img src="P4.JPG" onclick="openPopup(this)"></div>
+  <div class="slide active"><img src="P1.JPG" onclick="openPopup(0)"></div>
+  <div class="slide"><img src="P2.jpg" onclick="openPopup(1)"></div>
+  <div class="slide"><img src="P3.JPG" onclick="openPopup(2)"></div>
+  <div class="slide"><img src="P4.JPG" onclick="openPopup(3)"></div>
 
   <button class="nav prev" onclick="prev()">‹</button>
   <button class="nav next" onclick="next()">›</button>
@@ -322,12 +316,13 @@ body{
 
 <!-- popup -->
 <div class="popup" id="popup" onclick="closePopup()">
+  <button onclick="prevPopup(event)" style="position:absolute;left:10px;">‹</button>
   <img id="popupImg">
+  <button onclick="nextPopup(event)" style="position:absolute;right:10px;">›</button>
 </div>
 
 <script>
 
-/* slider */
 let index=0;
 const slides=document.querySelectorAll(".slide");
 
@@ -348,17 +343,33 @@ function prev(){
 
 setInterval(next,4000);
 
-/* popup */
-function openPopup(img){
+/* popup gallery */
+let popupIndex=0;
+const imgs=document.querySelectorAll(".slide img");
+
+function openPopup(i){
+  popupIndex=i;
   document.getElementById("popup").style.display="flex";
-  document.getElementById("popupImg").src=img.src;
+  document.getElementById("popupImg").src=imgs[i].src;
+}
+
+function nextPopup(e){
+  e.stopPropagation();
+  popupIndex=(popupIndex+1)%imgs.length;
+  document.getElementById("popupImg").src=imgs[popupIndex].src;
+}
+
+function prevPopup(e){
+  e.stopPropagation();
+  popupIndex=(popupIndex-1+imgs.length)%imgs.length;
+  document.getElementById("popupImg").src=imgs[popupIndex].src;
 }
 
 function closePopup(){
   document.getElementById("popup").style.display="none";
 }
 
-/* 🌸 flower generate */
+/* 🌸 flower */
 setInterval(()=>{
   const f=document.createElement("div");
   f.className="flower";
@@ -368,9 +379,10 @@ setInterval(()=>{
   document.body.appendChild(f);
 
   setTimeout(()=>f.remove(),10000);
-},500);
+},700);
 
 </script>
 
 </body>
 </html>
+  
