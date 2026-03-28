@@ -51,7 +51,7 @@ body{
   box-shadow:0 10px 30px rgba(255,182,193,0.4);
 }
 
-/* 🎀 MENU (นุ่ม + ไม่มีขอบ) */
+/* 🎀 MENU (นุ่ม ไม่มีขอบ + 2 สี) */
 .menu{
   display:flex;
   margin:15px 0;
@@ -125,37 +125,45 @@ body{
 .prev{left:10px;}
 .next{right:10px;}
 
-/* 💖 QUEUE (เหมือนรูปสอง) */
+/* 💖 QUEUE CARD */
 .queue-card{
   position:relative;
-  background:#fff;
+  background:#ffffff;
   border-radius:20px;
   padding:18px;
   margin-top:15px;
 
-  box-shadow:0 6px 18px rgba(255,182,193,0.2);
+  box-shadow:0 8px 25px rgba(255,182,193,0.25);
 }
 
-/* badge */
+/* 🌟 BADGE = แบบในรูปคุณ */
 .queue-badge{
   position:absolute;
   right:12px;
   top:12px;
 
-  background: linear-gradient(135deg,#ffeaa7,#ffd6f1);
-  border-radius:12px;
-  padding:6px 10px;
+  background: linear-gradient(145deg,#ffeaa7,#ffd6f1);
+  border-radius:18px;
+  padding:10px 14px;
 
   text-align:center;
+
+  box-shadow:
+    0 10px 25px rgba(255,182,193,0.4),
+    inset 0 2px 5px rgba(255,255,255,0.6);
 }
 
 .queue-badge span{
-  font-size:11px;
+  display:block;
+  font-size:12px;
+  color:#7a6a6a;
 }
 
 .queue-badge b{
-  font-size:18px;
-  color:#ff6fa5;
+  display:block;
+  font-size:24px;
+  font-weight:800;
+  color:#ff5c9c;
 }
 
 /* text */
@@ -166,7 +174,6 @@ body{
 
 .client span{
   color:#e89aac;
-  font-size:15px;
 }
 
 /* progress */
@@ -211,7 +218,7 @@ body{
   100%{ left:120%; }
 }
 
-/* 🌸 ดอกไม้ (หลังสุด) */
+/* 🌸 ดอกไม้หลังสุด */
 .flower{
   position:fixed;
   top:-20px;
@@ -337,7 +344,7 @@ function closePopup(){
   document.getElementById("popup").style.display="none";
 }
 
-/* 🌸 สร้างดอกไม้ */
+/* 🌸 ดอกไม้ */
 for(let i=0;i<10;i++){
   let f=document.createElement("div");
   f.className="flower";
