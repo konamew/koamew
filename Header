@@ -1,1 +1,67 @@
+<div class="header">
+  <img src="logokonamew.PNG">
+  <img src="logocat.PNG">
+</div>
 
+.header{
+  background: linear-gradient(135deg,#f7a0b8,#fae9d7);
+  border-radius:20px;
+  padding:15px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  box-shadow:0 8px 25px rgba(255,182,193,0.45);
+}
+
+.header img{height:40px;}
+<div class="menu">
+  <button>Home</button>
+  <button>T.O.S</button>
+  <button>Price</button>
+  <button>Contact</button>
+</div>
+
+.menu{
+  display:flex;
+  margin:15px 0;
+}
+
+.menu button{
+  flex:1;
+  margin:5px;
+  padding:10px;
+  border-radius:20px;
+  border:none;
+  background:#fff;
+  color:#d98194;
+  font-weight:bold;
+  box-shadow:0 5px 15px rgba(255,182,193,0.25);
+  transition:0.25s;
+  position:relative;
+}
+
+.menu button:hover{
+  background: linear-gradient(135deg,#ffdbe5,#d6ecff);
+  transform:translateY(-2px);
+}
+
+.menu button:hover::after{
+  content:"✨";
+  position:absolute;
+  right:8px;
+  top:-5px;
+  font-size:14px;
+  animation:sparkle 1s infinite;
+}
+@keyframes sparkle{
+  0%{opacity:0; transform:scale(0.8);}
+  50%{opacity:1; transform:scale(1.2);}
+  100%{opacity:0; transform:scale(0.8);}
+}
+
+<div class="menu">
+  <button>Home</button>
+  <button>T.O.S</button>
+  <button>Price</button>
+  <button>Contact</button>
+</div>
