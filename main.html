@@ -7,17 +7,12 @@
 
 <style>
 
-/* 🌸 RESET */
+/* RESET */
 *{
   margin:0;
   padding:0;
   box-sizing:border-box;
-  font-family: 'Segoe UI', sans-serif;
-  -webkit-tap-highlight-color: transparent;
-}
-
-html{
-  scroll-behavior:smooth;
+  font-family:'Segoe UI',sans-serif;
 }
 
 body{
@@ -26,14 +21,14 @@ body{
   justify-content:center;
 }
 
-/* 💖 CONTAINER (แก้คอมโล่ง) */
+/* container */
 .container{
   width:100%;
   max-width:420px;
   padding:15px;
 }
 
-/* 🌸 HEADER */
+/* header */
 .header{
   background:#d98194;
   border-radius:20px;
@@ -44,58 +39,51 @@ body{
   box-shadow:0 8px 25px rgba(255,182,193,0.4);
 }
 
-.header img{
-  height:40px;
-}
+.header img{ height:40px; }
 
-/* 🌈 WELCOME */
-.welcome{
-  margin-top:15px;
-}
-
+/* welcome */
 .welcome img{
   width:100%;
   border-radius:20px;
+  margin-top:15px;
   box-shadow:0 10px 30px rgba(255,182,193,0.4);
 }
 
-/* 🎀 MENU */
+/* 🌸 MENU NEW STYLE */
 .menu{
   display:flex;
-  justify-content:space-between;
+  gap:10px;
   margin:15px 0;
 }
 
 .menu button{
   flex:1;
-  margin:5px;
   padding:10px;
   border-radius:20px;
-  border:2px solid #e6a6b3;
-  background:white;
+  border:none;
+  background: linear-gradient(135deg,#fff,#fff0f5);
   color:#d98194;
   font-weight:bold;
+  box-shadow:0 5px 15px rgba(255,182,193,0.3);
   transition:0.25s;
   position:relative;
 }
 
 .menu button:hover{
-  background:#ffdbe5;
   transform:translateY(-3px);
-  box-shadow:0 5px 15px rgba(255,182,193,0.4);
 }
 
 .menu button:active{
+  background: linear-gradient(135deg,#ffd6e5,#d6e8ff);
   transform:scale(0.95);
 }
 
-/* ✨ sparkle */
+/* sparkle */
 .menu button:hover::after{
   content:"✨";
   position:absolute;
   right:8px;
   top:-5px;
-  font-size:14px;
   animation:sparkle 1s infinite;
 }
 
@@ -105,17 +93,17 @@ body{
   100%{opacity:0;}
 }
 
-/* 🌸 TITLE */
+/* title */
 .section-title{
-  font-size:24px;
+  font-size:26px;
+  font-weight:800;
   margin:20px 0 10px;
   color:#6b5b5b;
 }
 
-/* 🎨 SLIDER */
+/* slider */
 .slider{
   position:relative;
-  width:100%;
   height:260px;
   overflow:hidden;
   border-radius:20px;
@@ -127,20 +115,19 @@ body{
   width:100%;
   height:100%;
   opacity:0;
-  transition:opacity 0.6s;
+  transition:0.5s;
 }
 
-.slide.active{
-  opacity:1;
-}
+.slide.active{ opacity:1; }
 
 .slide img{
   width:100%;
   height:100%;
   object-fit:cover;
+  cursor:pointer;
 }
 
-/* ปุ่ม slider */
+/* nav */
 .nav{
   position:absolute;
   top:50%;
@@ -150,16 +137,37 @@ body{
   border-radius:50%;
   width:35px;
   height:35px;
-  opacity:0.8;
 }
 
 .prev{ left:10px;}
 .next{ right:10px;}
 
-/* 💖 QUEUE CARD (เวอร์ชันสวยตามแบบคุณ) */
+/* 💖 POPUP */
+.popup{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.3);
+  backdrop-filter:blur(8px);
+  display:none;
+  justify-content:center;
+  align-items:center;
+}
+
+.popup img{
+  max-width:90%;
+  max-height:80%;
+  border-radius:20px;
+  animation:zoom 0.3s;
+}
+
+@keyframes zoom{
+  from{transform:scale(0.8); opacity:0;}
+  to{transform:scale(1); opacity:1;}
+}
+
+/* queue */
 .queue-card{
-  position:relative;
-  background: linear-gradient(145deg,#fff,#fff5f8);
+  background:#ffffff;
   border-radius:25px;
   padding:18px;
   margin-top:10px;
@@ -167,52 +175,17 @@ body{
   box-shadow:
     0 10px 30px rgba(255,182,193,0.35),
     inset 0 1px 5px rgba(255,255,255,0.6);
-
-  transition:0.3s;
 }
 
-.queue-card:hover{
-  transform: translateY(-5px);
-  box-shadow:
-    0 15px 40px rgba(255,182,193,0.5);
-}
-
-/* glow overlay */
-.queue-card::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  border-radius:25px;
-  background: radial-gradient(circle at top left, rgba(255,200,220,0.3), transparent);
-  pointer-events:none;
-}
-
-/* badge */
 .queue-badge{
   position:absolute;
   right:10px;
   top:10px;
-
-  background: linear-gradient(145deg,#ffeaa7,#ffd6f1);
+  background: linear-gradient(#ffeaa7,#ffd6f1);
   border-radius:15px;
   padding:8px 12px;
-
-  text-align:center;
-  box-shadow:0 5px 15px rgba(0,0,0,0.1);
 }
 
-.queue-badge span{
-  display:block;
-  font-size:12px;
-  color:#7a6a6a;
-}
-
-.queue-badge b{
-  font-size:22px;
-  color:#ff6fa5;
-}
-
-/* text */
 .client{
   font-size:22px;
   font-weight:bold;
@@ -220,20 +193,9 @@ body{
 
 .client span{
   color:#e89aac;
-  font-size:16px;
   margin-left:5px;
 }
 
-.service{
-  margin-top:5px;
-}
-
-.progress-text{
-  margin-top:5px;
-  color:#e89aac;
-}
-
-/* progress */
 .progress-bar{
   height:10px;
   background:#eee;
@@ -242,75 +204,61 @@ body{
   margin-top:10px;
 }
 
+/* ✨ PROGRESS SHIMMER */
 .progress-fill{
   width:70%;
   height:100%;
   background: linear-gradient(90deg,#ff9eb5,#c9b6ff,#8ec5ff);
   border-radius:10px;
-  box-shadow:0 0 10px rgba(255,182,193,0.6);
-
   position:relative;
   overflow:hidden;
+
+  box-shadow:
+    0 0 12px rgba(255,182,193,0.7),
+    0 0 20px rgba(173,216,230,0.6);
 }
 
 .progress-fill::after{
   content:"";
   position:absolute;
   top:0;
-  left:-50%;
-  width:50%;
+  left:-60%;
+  width:60%;
   height:100%;
-
-animation: shimmerMove 2s infinite;
-}
-
-@keyframes shimmerMove{
-  0%{ left:-50%; }
-  100%{ left:120%; }
-}
 
   background: linear-gradient(
     120deg,
     transparent,
-    rgba(255,255,255,0.5),
+    rgba(255,255,255,0.85),
     transparent
   );
 
-  animation: shimmerMove 2s infinite;
+  animation: shimmer 2.5s infinite;
 }
 
-@keyframes shimmerMove{
-  0%{ left:-50%; }
+@keyframes shimmer{
+  0%{ left:-60%; }
   100%{ left:120%; }
 }
 
-/* 🌸 floating background */
-body::before{
-  content:"🌸 ";
+/* 🌸 FLOWER FALL */
+.flower{
   position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  opacity:0.08;
-  animation:float 10s linear infinite;
+  top:-20px;
+  font-size:18px;
+  animation:fall linear infinite;
   pointer-events:none;
 }
 
-@keyframes float{
-  0%{transform:translateY(0);}
-  100%{transform:translateY(-100px);}
+@keyframes fall{
+  to{
+    transform:translateY(110vh) rotate(360deg);
+  }
 }
 
-/* 💻 DESKTOP */
+/* desktop */
 @media(min-width:768px){
-  .container{
-    max-width:600px;
-  }
-
-  .slider{
-    height:320px;
-  }
+  .container{ max-width:600px;}
 }
 
 </style>
@@ -320,18 +268,15 @@ body::before{
 
 <div class="container">
 
-<!-- HEADER -->
 <div class="header">
   <img src="logokonamew.PNG">
   <img src="logocat.PNG">
 </div>
 
-<!-- WELCOME -->
 <div class="welcome">
   <img src="bgwelcome.PNG">
 </div>
 
-<!-- MENU -->
 <div class="menu">
   <button>Home</button>
   <button>T.O.S</button>
@@ -339,20 +284,18 @@ body::before{
   <button>Contact</button>
 </div>
 
-<!-- PORTFOLIO -->
 <div class="section-title">Portfolio</div>
 
 <div class="slider">
-  <div class="slide active"><img src="P1.JPG"></div>
-  <div class="slide"><img src="P2.jpg"></div>
-  <div class="slide"><img src="P3.JPG"></div>
-  <div class="slide"><img src="P4.JPG"></div>
+  <div class="slide active"><img src="P1.JPG" onclick="openPopup(this)"></div>
+  <div class="slide"><img src="P2.jpg" onclick="openPopup(this)"></div>
+  <div class="slide"><img src="P3.JPG" onclick="openPopup(this)"></div>
+  <div class="slide"><img src="P4.JPG" onclick="openPopup(this)"></div>
 
   <button class="nav prev" onclick="prev()">‹</button>
   <button class="nav next" onclick="next()">›</button>
 </div>
 
-<!-- QUEUE -->
 <div class="section-title">Queue</div>
 
 <div class="queue-card">
@@ -366,8 +309,8 @@ body::before{
     Client <span>Vgen</span>
   </h3>
 
-  <p class="service">Service : head shot</p>
-  <p class="progress-text">Progress : done</p>
+  <p>Service : head shot</p>
+  <p style="color:#e89aac;">Progress : done</p>
 
   <div class="progress-bar">
     <div class="progress-fill"></div>
@@ -377,9 +320,16 @@ body::before{
 
 </div>
 
+<!-- popup -->
+<div class="popup" id="popup" onclick="closePopup()">
+  <img id="popupImg">
+</div>
+
 <script>
-let index = 0;
-const slides = document.querySelectorAll(".slide");
+
+/* slider */
+let index=0;
+const slides=document.querySelectorAll(".slide");
 
 function showSlide(i){
   slides.forEach(s=>s.classList.remove("active"));
@@ -387,16 +337,39 @@ function showSlide(i){
 }
 
 function next(){
-  index = (index+1)%slides.length;
+  index=(index+1)%slides.length;
   showSlide(index);
 }
 
 function prev(){
-  index = (index-1+slides.length)%slides.length;
+  index=(index-1+slides.length)%slides.length;
   showSlide(index);
 }
 
 setInterval(next,4000);
+
+/* popup */
+function openPopup(img){
+  document.getElementById("popup").style.display="flex";
+  document.getElementById("popupImg").src=img.src;
+}
+
+function closePopup(){
+  document.getElementById("popup").style.display="none";
+}
+
+/* 🌸 flower generate */
+setInterval(()=>{
+  const f=document.createElement("div");
+  f.className="flower";
+  f.innerText="🌸";
+  f.style.left=Math.random()*100+"vw";
+  f.style.animationDuration=(5+Math.random()*5)+"s";
+  document.body.appendChild(f);
+
+  setTimeout(()=>f.remove(),10000);
+},500);
+
 </script>
 
 </body>
