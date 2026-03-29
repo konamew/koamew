@@ -39,15 +39,45 @@
 .menu a{
   flex:1;
   margin:4px;
-  padding:6px 0;
-  border-radius:14px;
+  padding:8px 0;
+  border-radius:18px;
+
   text-align:center;
   text-decoration:none;
-  background:#fff;
+
+  background:rgba(255,255,255,0.9);
   color:#d98194;
+
   font-size:14px;
   font-weight:600;
-  box-shadow:0 3px 10px rgba(255,182,193,0.2);
+
+  box-shadow:0 6px 15px rgba(255,182,193,0.25);
+  transition:0.25s;
+
+  position:relative;
+}
+
+/* hover */
+.menu a:hover{
+  background: linear-gradient(135deg,#ffdbe5,#d6ecff);
+  transform:translateY(-2px);
+}
+
+/* sparkle */
+.menu a:hover::after{
+  content:"✨";
+  position:absolute;
+  right:8px;
+  top:-5px;
+  font-size:14px;
+  animation:sparkle 1s infinite;
+}
+
+/* ⭐ ปุ่มที่เลือก (สำคัญมาก) */
+.menu a.active{
+  background: linear-gradient(135deg,#ffdbe5,#cfe8ff);
+  color:#b96b85;
+  box-shadow:0 6px 20px rgba(255,182,193,0.35);
 }
 </style>
 
