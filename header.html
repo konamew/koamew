@@ -1,12 +1,12 @@
 <div class="header">
 
   <div class="top">
-    <div>
+    <div class="left">
       <img src="logokonamew.PNG">
       <div class="status">Commission : Open</div>
     </div>
 
-    <img src="logocat.PNG">
+    <img src="logocat.PNG" class="cat">
   </div>
 
   <div class="menu">
@@ -23,17 +23,19 @@
   background: linear-gradient(135deg,#f7a0b8,#fae9d7);
   border-radius:20px;
   padding:15px;
-
-  display:flex;
-  flex-direction:column: 
-  
   box-shadow:0 8px 25px rgba(255,182,193,0.45);
 }
 
+/* แถวบน */
 .top{
   display:flex;
   justify-content:space-between;
   align-items:center;
+}
+
+.left{
+  display:flex;
+  flex-direction:column;
 }
 
 .status{
@@ -41,6 +43,11 @@
   color:white;
 }
 
+.cat{
+  height:50px;
+}
+
+/* เมนู (อยู่บรรทัดล่างเสมอ) */
 .menu{
   display:flex;
   margin-top:12px;
