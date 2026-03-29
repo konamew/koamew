@@ -1,9 +1,62 @@
+<style>
+.header{
+  background: linear-gradient(135deg,#f7a0b8,#fae9d7);
+  border-radius:20px;
+  padding:12px;
+  box-shadow:0 8px 25px rgba(255,182,193,0.45);
+}
+
+/* แถวบน */
+.header-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+/* โลโก้ */
+.logo{
+  height:40px;
+}
+
+/* แมว */
+.cat{
+  height:45px;
+}
+
+/* ข้อความ */
+.subtext{
+  font-size:12px;
+  color:white;
+  margin-top:4px;
+}
+
+/* เมนู */
+.menu{
+  display:flex;
+  margin-top:12px;
+}
+
+.menu a{
+  flex:1;
+  margin:4px;
+  padding:6px 0;
+  border-radius:14px;
+  text-align:center;
+  text-decoration:none;
+  background:#fff;
+  color:#d98194;
+  font-size:14px;
+  font-weight:600;
+  box-shadow:0 3px 10px rgba(255,182,193,0.2);
+}
+</style>
+
 <div class="header">
 
-  <div class="top">
-    <div class="left">
-      <img src="logokonamew.PNG">
-      <div class="status">Commission : Open</div>
+  <div class="header-top">
+    <div>
+      <img src="logokonamew.PNG" class="logo">
+      <div class="subtext">Commission : Open</div>
     </div>
 
     <img src="logocat.PNG" class="cat">
@@ -17,53 +70,3 @@
   </div>
 
 </div>
-
-<style>
-.header{
-  background: linear-gradient(135deg,#f7a0b8,#fae9d7);
-  border-radius:20px;
-  padding:15px;
-  box-shadow:0 8px 25px rgba(255,182,193,0.45);
-}
-
-/* แถวบน */
-.top{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-}
-
-.left{
-  display:flex;
-  flex-direction:column;
-}
-
-.status{
-  font-size:12px;
-  color:white;
-}
-
-.cat{
-  height:50px;
-}
-
-/* เมนู (อยู่บรรทัดล่างเสมอ) */
-.menu{
-  display:flex;
-  margin-top:12px;
-}
-
-.menu a{
-  flex:1;
-  margin:4px;
-  padding:8px 0;
-  border-radius:14px;
-  text-align:center;
-  text-decoration:none;
-  background:#fff;
-  color:#d98194;
-  font-size:14px;
-  font-weight:600;
-  box-shadow:0 3px 10px rgba(255,182,193,0.2);
-}
-</style>
