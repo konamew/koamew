@@ -28,53 +28,7 @@ body{
   padding:15px;
 }
 
-/* header */
-.header{
-  background: linear-gradient(135deg,#f7a0b8,#fae9d7);
-  border-radius:20px;
-  padding:15px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  box-shadow:0 8px 25px rgba(255,182,193,0.45);
-}
-
-.header img{height:40px;}
-
-/* menu */
-.menu{
-  display:flex;
-  margin:15px 0;
-}
-
-.menu button{
-  flex:1;
-  margin:5px;
-  padding:10px;
-  border-radius:20px;
-  border:none;
-  background:#fff;
-  color:#d98194;
-  font-weight:bold;
-  box-shadow:0 5px 15px rgba(255,182,193,0.25);
-  transition:0.25s;
-
-  position:relative; /* 👈 ใส่ตรงนี้ */
-}
-
-  .menu button:hover::after{
-  content:"✨";
-  position:absolute;
-  right:8px;
-  top:-5px;
-  font-size:14px;
-  animation:sparkle 1s infinite;
-}
-.menu button:hover{
-  background: linear-gradient(135deg,#ffdbe5,#d6ecff);
-  transform:translateY(-2px);
-}
-  
+/* ❌ ลบ header + menu ออกหมดแล้ว */
 
 /* title */
 .section-title{
@@ -84,11 +38,6 @@ body{
   color:#6b5b5b;
 }
 
-  @keyframes sparkle{
-  0%{opacity:0; transform:scale(0.8);}
-  50%{opacity:1; transform:scale(1.2);}
-  100%{opacity:0; transform:scale(0.8);}
-}
 /* slider */
 .slider{
   position:relative;
@@ -144,11 +93,9 @@ body{
   position:absolute;
   right:10px;
   top:10px;
-
   background: linear-gradient(135deg,#ffeaa7,#ffd6f1);
   border-radius:15px;
   padding:8px 12px;
-
   text-align:center;
   box-shadow:0 5px 15px rgba(0,0,0,0.1);
 }
@@ -203,7 +150,7 @@ body{
   100%{ left:120%; }
 }
 
-/* 🌙 POPUP FIX */
+/* popup */
 .popup{
   position:fixed;
   inset:0;
@@ -220,7 +167,6 @@ body{
   border-radius:20px;
 }
 
-/* ปุ่ม popup */
 .popup-btn{
   position:absolute;
   top:50%;
@@ -236,23 +182,16 @@ body{
 .popup-btn.left{ left:20px; }
 .popup-btn.right{ right:20px; }
 
-  .popup-btn.right{ right:20px; }
-
-/* ⭐ ใส่ตรงนี้เลย */
 .client span{
   color:#e89aac;
   font-size:13px;
   font-weight:400;
-
   background:#ffe4ec;
   padding:3px 8px;
   border-radius:10px;
-
   margin-left:8px;
   display:inline-block;
 }
-
-</style>
 
 </style>
 </head>
@@ -261,7 +200,8 @@ body{
 
 <div class="container">
 
-<div id="header"><2div>
+<!-- ✅ โหลด header -->
+<div id="header"></div>
 
 <div class="section-title">Portfolio</div>
 
@@ -298,8 +238,6 @@ body{
 </div>
 
 <script>
-
-/* slider */
 let index=0;
 const slides=document.querySelectorAll(".slide");
 
@@ -312,7 +250,6 @@ function next(){ index=(index+1)%slides.length; showSlide(index);}
 function prev(){ index=(index-1+slides.length)%slides.length; showSlide(index);}
 setInterval(next,4000);
 
-/* 💖 popup FIX */
 let popupIndex=0;
 const images=["P1.JPG","P2.jpg","P3.JPG","P4.JPG"];
 
@@ -336,21 +273,21 @@ function popupPrev(){
   updatePopup();
 }
 
-/* ปิด popup */
 document.getElementById("popup").addEventListener("click",(e)=>{
   if(e.target.id==="popup"){
     document.getElementById("popup").style.display="none";
   }
 });
-
 </script>
 
-  <script>
+<!-- ✅ โหลด header -->
+<script>
 fetch("header.html")
 .then(res => res.text())
 .then(data => {
   document.getElementById("header").innerHTML = data;
 });
 </script>
+
 </body>
 </html>
