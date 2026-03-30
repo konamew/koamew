@@ -26,7 +26,6 @@ body{
   width:100%;
   max-width:420px;
   padding:15px;
-  overflow:hidden;
 }
 
 /* ❌ ลบ header + menu ออกหมดแล้ว */
@@ -264,6 +263,11 @@ body{
   position:relative;
   z-index:1;
 }
+ 
+  .slider-wrapper{
+  overflow-x:hidden;   /* 👈 ตัดเฉพาะแนวนอน */
+  overflow-y:visible;  /* 👈 อนุญาตแนวตั้ง */
+} 
 
   
 </style>
