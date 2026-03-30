@@ -219,6 +219,8 @@ body{
 <div class="section-title">Queue</div>
 <div id="queue-container"></div>
 
+<div class="section-title">Completed</div>
+<div id="done-container"></div>
 </div>
 
 <!-- popup -->
@@ -279,8 +281,11 @@ fetch(sheetURL)
   .then(data => {
     const rows = data.split("\n").slice(1);
 
-    const container = document.getElementById("queue-container");
-    container.innerHTML = "";
+    const queueContainer = document.getElementById("queue-container");
+    const doneContainer = document.getElementById("done-container");
+
+queueContainer.innerHTML = "";
+doneContainer.innerHTML = "";
 
     const firstRow = rows[0].split(",");
     const queueStatus = firstRow[8]?.trim().toLowerCase();
