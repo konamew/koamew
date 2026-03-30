@@ -217,16 +217,8 @@ body{
 
 <div class="section-title">Queue</div>
 
-<div class="queue-card">
-  <div class="queue-badge"><span>Queue</span><b>1</b></div>
-  <h3 class="client">Client <span>Vgen</span></h3>
-  <p>Service : head shot</p>
-  <p style="color:#e89aac;">Progress : done</p>
-
-  <div class="progress-bar">
-    <div class="progress-fill"></div>
-  </div>
-</div>
+<div class="section-title">Queue</div>
+<div id="queue-container"></div>
 
 </div>
 
@@ -279,7 +271,62 @@ document.getElementById("popup").addEventListener("click",(e)=>{
   }
 });
 </script>
+<!-- 🔥 QUEUE SCRIPT -->
+<script>
+const sheetURL = "1aNycjooAEsNhnH5VMeukZvkU8Ddx6PGDWwNUwpcHQyQ";
 
+fetch(sheetURL)
+  .then(res => res.text())
+  .then(data => {
+    const rows = data.split("\n").slice(1);
+
+    const container = document.getElementById("queue-container");
+    container.innerHTML = "";
+
+    const firstRow = rows[0].split(",");
+    const queueStatus = firstRow[8]?.trim().toLowerCase();
+
+    if(queueStatus === "no"){
+      container.innerHTML = "<p style='text-align:center;color:#999;'>Commission Closed</p>";
+      return;
+    }
+
+    rows.forEach((row, index) => {
+      const cols = row.split(",");
+
+      const name = cols[1];
+      const service = cols[3];
+      const status = cols[4];
+      const progress = cols[5];
+
+      if(!name) return;
+
+      const card = `
+        <div class="queue-card">
+
+          <div class="queue-badge">
+            <span>Queue</span>
+            <b>${index+1}</b>
+          </div>
+
+          <h3 class="client">
+            ${name} <span>${cols[2]}</span>
+          </h3>
+
+          <p>Service : ${service}</p>
+          <p style="color:#e89aac;">Progress : ${status}</p>
+
+          <div class="progress-bar">
+            <div class="progress-fill" style="width:${progress}%"></div>
+          </div>
+
+        </div>
+      `;
+
+      container.innerHTML += card;
+    });
+  });
+</script>
 <!-- ✅ โหลด header -->
 <script>
 fetch("header.html")
