@@ -193,6 +193,46 @@ body{
   display:inline-block;
 }
 
+/* 🔥 TAB */
+.tab{
+  display:flex;
+  gap:10px;
+  margin-bottom:10px;
+}
+
+.tab button{
+  flex:1;
+  padding:10px;
+  border:none;
+  border-radius:20px;
+  background:rgba(255,255,255,0.7);
+  backdrop-filter: blur(10px);
+  color:#e89aac;
+  font-weight:600;
+}
+
+/* 🔥 SLIDER QUEUE */
+.slider-wrapper{
+  overflow:hidden;
+  width:100%;
+}
+
+.slider-pages{
+  display:flex;
+  width:200%;
+  transition:0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.page{
+  width:100%;
+  flex-shrink:0;
+}
+  
+  .tab button.active{
+  background: linear-gradient(135deg,#ffc6d6,#cdb4ff);
+  color:white;
+}
+
 </style>
 </head>
 
@@ -366,14 +406,21 @@ fetch("header.html")
 
  <script>
   // slider queue / completed
-  function showQueue(){
-    document.querySelector(".slider-pages").style.transform = "translateX(0%)";
-  }
+   function showQueue(){
+  document.querySelector(".slider-pages").style.transform = "translateX(0%)";
+  setActive(0);
+}
 
-  function showDone(){
-    document.querySelector(".slider-pages").style.transform = "translateX(-50%)";
-  }
-</script>
+function showDone(){
+  document.querySelector(".slider-pages").style.transform = "translateX(-50%)";
+  setActive(1);
+}
+
+function setActive(i){
+  const btns = document.querySelectorAll(".tab button");
+  btns.forEach(b=>b.classList.remove("active"));
+  btns[i].classList.add("active");
+}
   
 </body>
 </html>
