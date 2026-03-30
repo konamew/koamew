@@ -299,9 +299,6 @@ fetch(sheetURL)
       const progress = cols[5]*100;
       let color = "#ff9eb5";
 
-  
-  let color = "#ff9eb5";
-
   if(status === "sketch") color = "#a0c4ff";
   if(status === "lineart") color = "#a0c4ff";    
   if(status === "coloring") color = "#ffc6d6";    
@@ -309,7 +306,7 @@ fetch(sheetURL)
   if(status === "finish") color = "#b8f2e6";
 
       if(!name) return;
-      if(status==="waiting")retuen;
+      if(status==="waiting")return;
 
       const card = `
         <div class="queue-card">
@@ -327,7 +324,7 @@ fetch(sheetURL)
           <p style="color:#e89aac;">staus : ${status}</p>
 
           <div class="progress-bar">
-            <div class="progress-fill" style="width:${progress}%"></div>
+           <div class="progress-fill" style="width:${progress}%; background:${color};"></div>
           </div>
 
         </div>
