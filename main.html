@@ -291,10 +291,9 @@ doneContainer.innerHTML = "";
     const queueStatus = firstRow[8]?.trim().toLowerCase();
 
     if(queueStatus === "no"){
-      container.innerHTML = "<p style='text-align:center;color:#999;'>Commission Closed</p>";
-      return;
-    }
-
+  queueContainer.innerHTML = "<p style='text-align:center;color:#999;'>Commission Closed</p>";
+  return;
+}
     rows.forEach((row, index) => {
       const cols = row.split(",");
 
@@ -335,7 +334,11 @@ doneContainer.innerHTML = "";
         </div>
       `;
 
-      container.innerHTML += card;
+     f(status === "finish"){
+  doneContainer.innerHTML += card;
+}else{
+  queueContainer.innerHTML += card;
+}
     });
   });
 </script>
