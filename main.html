@@ -215,7 +215,6 @@ body{
   <button class="nav next" onclick="next()">›</button>
 </div>
 
-<div class="section-title">Queue</div>
 
 <div class="section-title">Queue</div>
 <div id="queue-container"></div>
@@ -297,9 +296,20 @@ fetch(sheetURL)
       const name = cols[1];
       const service = cols[3];
       const status = cols[4];
-      const progress = cols[5];
+      const progress = cols[5]*100;
+      let color = "#ff9eb5";
+
+  
+  let color = "#ff9eb5";
+
+  if(status === "sketch") color = "#a0c4ff";
+  if(status === "lineart") color = "#a0c4ff";    
+  if(status === "coloring") color = "#ffc6d6";    
+  if(status === "detail") color = "#ffc6d6";
+  if(status === "finish") color = "#b8f2e6";
 
       if(!name) return;
+      if(status==="waiting")retuen;
 
       const card = `
         <div class="queue-card">
@@ -314,7 +324,7 @@ fetch(sheetURL)
           </h3>
 
           <p>Service : ${service}</p>
-          <p style="color:#e89aac;">Progress : ${status}</p>
+          <p style="color:#e89aac;">staus : ${status}</p>
 
           <div class="progress-bar">
             <div class="progress-fill" style="width:${progress}%"></div>
