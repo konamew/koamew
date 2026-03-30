@@ -334,7 +334,7 @@ doneContainer.innerHTML = "";
         </div>
       `;
 
-     f(status === "finish"){
+     if(status === "finish"){
   doneContainer.innerHTML += card;
 }else{
   queueContainer.innerHTML += card;
