@@ -26,6 +26,7 @@ body{
   width:100%;
   max-width:420px;
   padding:15px;
+  overflow:hidden;
 }
 
 /* ❌ ลบ header + menu ออกหมดแล้ว */
@@ -87,7 +88,10 @@ body{
   padding:18px;
   margin-top:15px;
   box-shadow:0 8px 25px rgba(255,182,193,0.25);
+  width:100%;
+  box-sixing:border-box;
 }
+
 
 .queue-badge{
   position:absolute;
@@ -218,9 +222,7 @@ body{
   overflow:hidden;
   width:100%;
 }
-  .container{
-    overflow:hidden;
-  }
+
 
 .slider-pages{
   display:flex;
@@ -451,6 +453,7 @@ function setActive(i){
   btns.forEach(b=>b.classList.remove("active"));
   btns[i].classList.add("active");
 }
+ </script>
   
 </body>
 </html>
