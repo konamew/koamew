@@ -217,10 +217,24 @@ body{
 
 
 <div class="section-title">Queue</div>
-<div id="queue-container"></div>
 
-<div class="section-title">Completed</div>
-<div id="done-container"></div>
+<div class="tab">
+  <button onclick="showQueue()">Queue</button>
+  <button onclick="showDone()">Completed</button>
+</div>
+
+<div class="slider-wrapper">
+  <div class="slider-pages">
+
+    <div class="page">
+      <div id="queue-container"></div>
+    </div>
+
+    <div class="page">
+      <div id="done-container"></div>
+    </div>
+
+  </div>
 </div>
 
 <!-- popup -->
@@ -351,5 +365,16 @@ fetch("header.html")
 });
 </script>
 
+ <script>
+  // slider queue / completed
+  function showQueue(){
+    document.querySelector(".slider-pages").style.transform = "translateX(0%)";
+  }
+
+  function showDone(){
+    document.querySelector(".slider-pages").style.transform = "translateX(-50%)";
+  }
+</script>
+  
 </body>
 </html>
