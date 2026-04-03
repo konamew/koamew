@@ -27,6 +27,12 @@ body{
   padding:15px;
   margin-bottom:15px;
   box-shadow:0 8px 25px rgba(255,182,193,0.25);
+  transition:0.2s; /* 👈 เพิ่มตรงนี้ */
+}
+
+.section:hover{
+  transform:translateY(-3px);
+  box-shadow:0 12px 30px rgba(255,182,193,0.35);
 }
 
 .section h3{
@@ -63,6 +69,17 @@ body{
   .contact-btn:hover{
   transform:translateY(-2px) scale(1.02);
 }
+
+.fade-item{
+  opacity:0;
+  transform:translateY(10px);
+  transition: all 0.4s cubic-bezier(0.4,0,0.2,1);
+}
+
+.fade-item.show{
+  opacity:1;
+  transform:translateY(0);
+}
 </style>
 </head>
 
@@ -74,7 +91,7 @@ body{
 <div id="header"></div>
 
 <!-- CONTENT -->
-<div class="section">
+<div class="section fade-item">
   <h3>Headshot</h3>
   <p>Starting at 15$<br>
   <h3>Half body</h3>
@@ -83,7 +100,7 @@ body{
   <p>Starting at 35$</p>
 </div>
 
-<div class="section">
+<div class="section fade-item">
   <h3>Adds on</h3>
   <p>
 • Extra charecter detailed +5-10$<br>    
@@ -94,7 +111,7 @@ body{
 </p>
 </div>
 
-<div class="section">
+<div class="section fade-item">
   <h3>Receive</h3>
   <p>
   • RGB 2000px+ with 300 dpi.<br>
@@ -103,7 +120,7 @@ body{
   </p>
 </div>
   
-<div class="section">
+<div class="section fade-item">
   <h3>Workflow</h3>
  <p>
 • Sketch → approval<br>
@@ -113,7 +130,7 @@ body{
 </p>
 </div>
 
- <div class="section">
+<div class="section fade-item">
   <h3>Note</h3>
  <p>
   • Price may vary depending on complexity.<br>
@@ -133,6 +150,16 @@ fetch("header.html")
 .then(res => res.text())
 .then(data => {
   document.getElementById("header").innerHTML = data;
+});
+</script>
+
+<script>
+const items = document.querySelectorAll(".fade-item");
+
+items.forEach((el, i)=>{
+  setTimeout(()=>{
+    el.classList.add("show");
+  }, i * 70); // 👈 จังหวะ (สำคัญ)
 });
 </script>
 
