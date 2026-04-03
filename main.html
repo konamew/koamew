@@ -389,6 +389,20 @@ document.getElementById("popup").addEventListener("click",(e)=>{
 <script>
 const sheetURL = "https://docs.google.com/spreadsheets/d/1aNycjooAEsNhnH5VMeukZvkU8Ddx6PGDWwNUwpcHQyQ/export?format=csv&gid=0";
 
+  function formatDate(dateStr){
+  if(!dateStr) return "";
+
+  const parts = dateStr.split("/");
+  const day = parts[0];
+  const month = parts[1];
+
+  const months = [
+    "January","February","March","April","May","June",
+    "July","August","September","October","November","December"
+  ];
+
+  return `${months[parseInt(month)-1]} ${day}`;
+}
 fetch(sheetURL)
   .then(res => res.text())
   .then(data => {
@@ -414,6 +428,8 @@ doneContainer.innerHTML = "";
       const service = cols[3];
       const status = cols[4];
       const progress = cols[5]*100;
+      const start = cols[6]; // start date 
+      const startFormatted = formatDate(start);
       let color = "#ff9eb5";
 
   if(status === "sketch") color = "#a0c4ff";
@@ -439,6 +455,10 @@ doneContainer.innerHTML = "";
 
           <p>Service : ${service}</p>
           <p style="color:#e89aac;">staus : ${status}</p>
+
+          <p style="text-align:right;font-size:11px;color:#d8a3af;opacity:0.8;margin-top:5px;">
+  start ${startFormatted}
+</p>
 
           <div class="progress-bar">
            <div class="progress-fill" style="width:${progress}%; background:${color};"></div>
