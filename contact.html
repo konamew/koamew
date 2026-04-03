@@ -21,16 +21,16 @@ body{
 }
 
 /* section */
-section{
+.section{
   background:#fff;
   border-radius:20px;
   padding:15px;
   margin-bottom:15px;
   box-shadow:0 8px 25px rgba(255,182,193,0.25);
-  transition:0.2s; /* 👈 เพิ่มตรงนี้ */
+  transition:0.2s;
 }
 
-.section:hover{
+section:hover{
   transform:translateY(-3px);
   box-shadow:0 12px 30px rgba(255,182,193,0.35);
 }
@@ -81,7 +81,7 @@ section{
 
 .contact-btn:first-of-type:hover{
   transform:scale(1.08);
-
+}
 .fade-item{
   opacity:0;
   transform:translateY(10px);
