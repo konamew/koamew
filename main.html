@@ -446,11 +446,25 @@ doneContainer.innerHTML = "";
       const startFormatted = formatDate(start);
       let color = "#ff9eb5";
 
-if(status === "sketch") color = "#D6E9DC"; // mint
-if(status === "lineart")color = "linear-gradient(90deg,#D6E9DC,#FFF9F4)";
-if(status === "coloring")color = "linear-gradient(90deg,#D6E9DC,#FFF9F4,#FDEEF1)";
-if(status === "detail")color = "linear-gradient(90deg,#D6E9DC,#FFF9F4,#FDEEF1,#F7D9E0)";
-if(status === "finish")color = "linear-gradient(90deg,#D6E9DC,#FFF9F4,#FDEEF1,#F7D9E0,#C6B7CC)";
+if(status === "sketch"){
+  color = "#EBF3D9"; // mint
+}
+
+if(status === "lineart"){
+  color = "linear-gradient(120deg,#EBF3D9,#CDE2F5)";
+}
+
+if(status === "coloring"){
+  color = "linear-gradient(120deg,#EBF3D9,#CDE2F5,#EDB9D4)";
+}
+
+if(status === "detail"){
+  color = "linear-gradient(120deg,#EBF3D9,#CDE2F5,#EDB9D4,#DCC6F3)";
+}
+
+if(status === "finish"){
+  color = "linear-gradient(120deg,#EBF3D9,#CDE2F5,#EDB9D4,#DCC6F3,#F9DDE5)";
+}
 
       if(!name) return;
       if(status==="waiting")return;
