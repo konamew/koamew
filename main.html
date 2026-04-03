@@ -446,11 +446,11 @@ doneContainer.innerHTML = "";
       const startFormatted = formatDate(start);
       let color = "#ff9eb5";
 
-  if(status === "sketch") color = "#a0c4ff";
-  if(status === "lineart") color = "#a0c4ff";    
-  if(status === "coloring") color = "#ffc6d6";    
-  if(status === "detail") color = "#ffc6d6";
-  if(status === "finish") color = "#b8f2e6";
+if(status === "sketch") color = "linear-gradient(90deg,#89c2ff,#bde0fe)";
+if(status === "lineart") color = "linear-gradient(90deg,#89c2ff,#bde0fe)";
+if(status === "coloring") color = "linear-gradient(90deg,#ffafcc,#ffc8dd)";
+if(status === "detail") color = "linear-gradient(90deg,#ff8fab,#ffc2d1)";
+if(status === "finish") color = "linear-gradient(90deg,#95d5b2,#d8f3dc)";
 
       if(!name) return;
       if(status==="waiting")return;
