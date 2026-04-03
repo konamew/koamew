@@ -480,10 +480,10 @@ doneContainer.innerHTML = "";
         </div>
       `;
 
-     if(status === "finish"){
-  doneContainer.innerHTML += card;
+    if(status === "finish"){
+  doneContainer.insertAdjacentHTML("beforeend", card);
 }else{
-  queueContainer.innerHTML += card;
+  queueContainer.insertAdjacentHTML("beforeend", card);
 }
     });
   });
