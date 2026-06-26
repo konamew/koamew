@@ -317,9 +317,8 @@ body{
 
 <div class="slider">
   <div class="slide active"><img src="P1.JPG" onclick="openPopup(0)"></div>
-  <div class="slide"><img src="P1.JPG" onclick="openPopup(1)"></div>
-  <div class="slide"><img src="P6.png" onclick="openPopup(2)"></div>
-  <div class="slide"><img src="P7.jpg" onclick="openPopup(3)"></div>
+  <div class="slide"><img src="P6.png" onclick="openPopup(1)"></div>
+  <div class="slide"><img src="P7.jpg" onclick="openPopup(2)"></div>
   
   <button class="nav prev" onclick="prev()">‹</button>
   <button class="nav next" onclick="next()">›</button>
@@ -371,7 +370,7 @@ function prev(){ index=(index-1+slides.length)%slides.length; showSlide(index);}
 setInterval(next,4000);
 
 let popupIndex=0;
-const images=["P2.jpg","P6.png","P7.jpg"];
+const images=["P1.jpg","P6.png","P7.jpg"];
 
 function openPopup(i){
   popupIndex=i;
